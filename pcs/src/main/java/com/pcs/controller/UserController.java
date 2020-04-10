@@ -16,10 +16,10 @@ public class UserController {
 	@Resource
 	private IUserService userService;
 
-	@RequestMapping("/showUser")
+	@RequestMapping("/selectByPrimaryKey")
 	public String toIndex(HttpServletRequest request, Model model) {
-		int userId = Integer.parseInt(request.getParameter("id"));
-		User user = this.userService.getUserById(userId);
+		int uId = Integer.parseInt(request.getParameter("uid"));
+		User user = this.userService.selectByPrimaryKey(uId);
 		model.addAttribute("user", user);
 		return "showUser";
 	}

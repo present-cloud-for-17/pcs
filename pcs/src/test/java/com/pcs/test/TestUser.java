@@ -12,7 +12,7 @@ import com.alibaba.fastjson.JSON;
 import com.pcs.pojo.User;
 import com.pcs.service.IUserService;
 
-@RunWith(SpringJUnit4ClassRunner.class) // 琛ㄧず缁ф壙浜哠pringJUnit4ClassRunner绫�
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-mybatis.xml" })
 
 public class TestUser {
@@ -29,7 +29,7 @@ public class TestUser {
 
 	@Test
 	public void test1() {
-		User user = userService.getUserById(1);
+		User user = userService.selectByPrimaryKey(1);
 		// System.out.println(user.getUserName());
 		// logger.info("鍊硷細"+user.getUserName());
 		logger.info(JSON.toJSONString(user));

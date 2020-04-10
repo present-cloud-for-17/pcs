@@ -14,9 +14,46 @@ public class UserServiceImpl implements IUserService {
 	private UserMapper userDao;
 
 	@Override
-	public User getUserById(int userId) {
+	public int deleteByPrimaryKey(Integer uId) {
 		// TODO Auto-generated method stub
-		return this.userDao.selectByPrimaryKey(userId);
+		return this.userDao.deleteByPrimaryKey(uId);
 	}
+
+	@Override
+	public int insert(User record) {
+		// TODO Auto-generated method stub
+		return this.userDao.insert(record);
+
+	}
+
+	@Override
+	public int insertSelective(User record) {
+		// TODO Auto-generated method stub
+		return this.userDao.insertSelective(record);
+
+	}
+
+	@Override
+	public User selectByPrimaryKey(Integer uId) {
+		// TODO Auto-generated method stub
+		return this.userDao.selectByPrimaryKey(uId);
+
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(User record) {
+		// TODO Auto-generated method stub
+		return this.userDao.updateByPrimaryKeySelective(record);
+
+	}
+
+	@Override
+	public int updateByPrimaryKey(User record) {
+		// TODO Auto-generated method stub
+		return this.userDao.updateByPrimaryKey(record);
+
+	}
+
+	
 
 }

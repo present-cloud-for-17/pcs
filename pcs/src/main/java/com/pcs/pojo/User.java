@@ -1,43 +1,75 @@
 package com.pcs.pojo;
 
+import java.util.Date;
+
 public class User {
-    private Integer id;
+    private Integer uId;
 
-    private String userName;
+    private Integer uNumber;
 
-    private String password;
+    private String uName;
 
-    private Integer age;
+    private Integer phone;
 
-    public Integer getId() {
-        return id;
+    private String emaile;
+
+    private Date createDate;
+
+    private Integer status;
+
+    public Integer getuId() {
+        return uId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setuId(Integer uId) {
+        this.uId = uId;
     }
 
-    public String getUserName() {
-        return userName;
+    public Integer getuNumber() {
+        return uNumber;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setuNumber(Integer uNumber) {
+        this.uNumber = uNumber;
     }
 
-    public String getPassword() {
-        return password;
+    public String getuName() {
+        return uName;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setuName(String uName) {
+        this.uName = uName == null ? null : uName.trim();
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
+    public String getEmaile() {
+        return emaile;
+    }
+
+    public void setEmaile(String emaile) {
+        this.emaile = emaile == null ? null : emaile.trim();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

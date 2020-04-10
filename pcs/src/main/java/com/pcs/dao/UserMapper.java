@@ -3,13 +3,13 @@ package com.pcs.dao;
 import com.pcs.pojo.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer uId);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer id);
+    User selectByPrimaryKey(Integer uId);
 
     int updateByPrimaryKeySelective(User record);
 

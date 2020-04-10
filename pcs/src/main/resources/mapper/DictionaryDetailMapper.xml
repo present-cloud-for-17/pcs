@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pcs.dao.DictionaryDetailMapper">
+  <resultMap id="BaseResultMap" type="com.pcs.pojo.DictionaryDetail">
+    <id column="dd_id" jdbcType="INTEGER" property="ddId" />
+    <result column="d_id" jdbcType="INTEGER" property="dId" />
+    <result column="english_tag" jdbcType="VARCHAR" property="englishTag" />
+    <result column="key_value" jdbcType="INTEGER" property="keyValue" />
+    <result column="is_default" jdbcType="BIT" property="isDefault" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dd_id, d_id, english_tag, key_value, is_default, value, sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dictionary_detail
+    where dd_id = #{ddId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dictionary_detail
+    where dd_id = #{ddId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pcs.pojo.DictionaryDetail">
+    insert into dictionary_detail (dd_id, d_id, english_tag, 
+      key_value, is_default, value, 
+      sort)
+    values (#{ddId,jdbcType=INTEGER}, #{dId,jdbcType=INTEGER}, #{englishTag,jdbcType=VARCHAR}, 
+      #{keyValue,jdbcType=INTEGER}, #{isDefault,jdbcType=BIT}, #{value,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pcs.pojo.DictionaryDetail">
+    insert into dictionary_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ddId != null">
+        dd_id,
+      </if>
+      <if test="dId != null">
+        d_id,
+      </if>
+      <if test="englishTag != null">
+        english_tag,
+      </if>
+      <if test="keyValue != null">
+        key_value,
+      </if>
+      <if test="isDefault != null">
+        is_default,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ddId != null">
+        #{ddId,jdbcType=INTEGER},
+      </if>
+      <if test="dId != null">
+        #{dId,jdbcType=INTEGER},
+      </if>
+      <if test="englishTag != null">
+        #{englishTag,jdbcType=VARCHAR},
+      </if>
+      <if test="keyValue != null">
+        #{keyValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDefault != null">
+        #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pcs.pojo.DictionaryDetail">
+    update dictionary_detail
+    <set>
+      <if test="dId != null">
+        d_id = #{dId,jdbcType=INTEGER},
+      </if>
+      <if test="englishTag != null">
+        english_tag = #{englishTag,jdbcType=VARCHAR},
+      </if>
+      <if test="keyValue != null">
+        key_value = #{keyValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDefault != null">
+        is_default = #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="value != null">
+        value = #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+    </set>
+    where dd_id = #{ddId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pcs.pojo.DictionaryDetail">
+    update dictionary_detail
+    set d_id = #{dId,jdbcType=INTEGER},
+      english_tag = #{englishTag,jdbcType=VARCHAR},
+      key_value = #{keyValue,jdbcType=INTEGER},
+      is_default = #{isDefault,jdbcType=BIT},
+      value = #{value,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER}
+    where dd_id = #{ddId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.pcs.pojo.DictionaryDetail">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="dict_id" jdbcType="INTEGER" property="dictId" />
+    <result column="english_tag" jdbcType="VARCHAR" property="englishTag" />
+    <result column="key_value" jdbcType="INTEGER" property="keyValue" />
+    <result column="is_default" jdbcType="BIT" property="isDefault" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, dict_id, english_tag, key_value, is_default, value, sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dictionary_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dictionary_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pcs.pojo.DictionaryDetail">
+    insert into dictionary_detail (id, dict_id, english_tag, 
+      key_value, is_default, value, 
+      sort)
+    values (#{id,jdbcType=INTEGER}, #{dictId,jdbcType=INTEGER}, #{englishTag,jdbcType=VARCHAR}, 
+      #{keyValue,jdbcType=INTEGER}, #{isDefault,jdbcType=BIT}, #{value,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pcs.pojo.DictionaryDetail">
+    insert into dictionary_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="dictId != null">
+        dict_id,
+      </if>
+      <if test="englishTag != null">
+        english_tag,
+      </if>
+      <if test="keyValue != null">
+        key_value,
+      </if>
+      <if test="isDefault != null">
+        is_default,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dictId != null">
+        #{dictId,jdbcType=INTEGER},
+      </if>
+      <if test="englishTag != null">
+        #{englishTag,jdbcType=VARCHAR},
+      </if>
+      <if test="keyValue != null">
+        #{keyValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDefault != null">
+        #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pcs.pojo.DictionaryDetail">
+    update dictionary_detail
+    <set>
+      <if test="dictId != null">
+        dict_id = #{dictId,jdbcType=INTEGER},
+      </if>
+      <if test="englishTag != null">
+        english_tag = #{englishTag,jdbcType=VARCHAR},
+      </if>
+      <if test="keyValue != null">
+        key_value = #{keyValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDefault != null">
+        is_default = #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="value != null">
+        value = #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pcs.pojo.DictionaryDetail">
+    update dictionary_detail
+    set dict_id = #{dictId,jdbcType=INTEGER},
+      english_tag = #{englishTag,jdbcType=VARCHAR},
+      key_value = #{keyValue,jdbcType=INTEGER},
+      is_default = #{isDefault,jdbcType=BIT},
+      value = #{value,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
