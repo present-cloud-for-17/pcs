@@ -23,4 +23,23 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "showUser";
 	}
+	//
+	// @RequestMapping("/register")
+	// public @ResponseBody Integer register(HttpServletRequest request, Model
+	// model) {
+	// // 0 - 账号登录，1-手机号登录，2-邮箱登录
+	// int loginType = Integer.parseInt(request.getParameter("loginType")); // 登录类型
+	// String loginToken = request.getParameter("loginName"); // 登录名
+	// String passwordToken = request.getParameter("psd"); // 密码
+	// Integer uId = Integer.parseInt(request.getParameter("uId"));
+	// Integer uNumber = Integer.parseInt(request.getParameter("uNumber"));
+	// String uName = request.getParameter("uName");
+	// String phone = request.getParameter("phone");
+	// String emaile = request.getParameter("emaile");
+	// Date createDate = System.currentTimeMillis();
+	// Integer status = 1;
+	// User User = new User();
+	// Integer result = this.userVerificationService.register(userVerification);
+	// return result;
+	// }
 }

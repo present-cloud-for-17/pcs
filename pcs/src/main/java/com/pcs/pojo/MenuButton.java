@@ -1,43 +1,64 @@
 package com.pcs.pojo;
 
-public class MenuButton {
-    private Integer mbId;
+import java.io.Serializable;
 
-    private Integer mId;
+public class MenuButton implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6802698051614503506L;
 
-    private Integer bId;
+	private Integer mbId;
 
-    private Integer status;
+	private Integer mId;
 
-    public Integer getMbId() {
-        return mbId;
-    }
+	private Integer bId;
 
-    public void setMbId(Integer mbId) {
-        this.mbId = mbId;
-    }
+	private Integer status;
 
-    public Integer getmId() {
-        return mId;
-    }
+	public MenuButton() {
 
-    public void setmId(Integer mId) {
-        this.mId = mId;
-    }
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public Integer getbId() {
-        return bId;
-    }
+	public MenuButton(Integer mbId, Integer mId, Integer bId, Integer status) {
+		super();
+		this.mbId = mbId;
+		this.mId = mId;
+		this.bId = bId;
+		this.status = status;
+	}
 
-    public void setbId(Integer bId) {
-        this.bId = bId;
-    }
+	public Integer getMbId() {
+		return mbId;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public void setMbId(Integer mbId) {
+		this.mbId = mbId;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public Integer getmId() {
+		return mId;
+	}
+
+	public void setmId(Integer mId) {
+		this.mId = mId;
+	}
+
+	public Integer getbId() {
+		return bId;
+	}
+
+	public void setbId(Integer bId) {
+		this.bId = bId;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 }

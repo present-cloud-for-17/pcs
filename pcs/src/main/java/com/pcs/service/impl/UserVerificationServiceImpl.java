@@ -54,4 +54,10 @@ public class UserVerificationServiceImpl implements IUserVerificationService {
 
 	}
 
+	@Override
+	public UserVerification login(UserVerification record) {
+		// TODO Auto-generated method stub
+		return this.userVerificationDao.login(record);
+	}
+
 }

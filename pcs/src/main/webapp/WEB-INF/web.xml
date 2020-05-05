@@ -9,6 +9,15 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring-mybatis.xml</param-value>
 	</context-param>
+	<!--配置允许跨域访问 -->
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<!-- 编码过滤器 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>

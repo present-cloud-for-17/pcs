@@ -1,33 +1,52 @@
 package com.pcs.pojo;
 
-public class Dictionary {
-    private Integer dId;
+import java.io.Serializable;
 
-    private Integer chineseName;
+public class Dictionary implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5724927320385316662L;
 
-    private Integer englishName;
+	private Integer dId;
 
-    public Integer getdId() {
-        return dId;
-    }
+	private Integer chineseName;
 
-    public void setdId(Integer dId) {
-        this.dId = dId;
-    }
+	private Integer englishName;
 
-    public Integer getChineseName() {
-        return chineseName;
-    }
+	public Dictionary() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public void setChineseName(Integer chineseName) {
-        this.chineseName = chineseName;
-    }
+	public Dictionary(Integer dId, Integer chineseName, Integer englishName) {
+		super();
+		this.dId = dId;
+		this.chineseName = chineseName;
+		this.englishName = englishName;
+	}
 
-    public Integer getEnglishName() {
-        return englishName;
-    }
+	public Integer getdId() {
+		return dId;
+	}
 
-    public void setEnglishName(Integer englishName) {
-        this.englishName = englishName;
-    }
+	public void setdId(Integer dId) {
+		this.dId = dId;
+	}
+
+	public Integer getChineseName() {
+		return chineseName;
+	}
+
+	public void setChineseName(Integer chineseName) {
+		this.chineseName = chineseName;
+	}
+
+	public Integer getEnglishName() {
+		return englishName;
+	}
+
+	public void setEnglishName(Integer englishName) {
+		this.englishName = englishName;
+	}
 }

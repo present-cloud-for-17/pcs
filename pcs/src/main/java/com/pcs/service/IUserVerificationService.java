@@ -14,4 +14,6 @@ public interface IUserVerificationService {
 	int updateByPrimaryKeySelective(UserVerification record);
 
 	int updateByPrimaryKey(UserVerification record);
+
+	UserVerification login(UserVerification record);
 }

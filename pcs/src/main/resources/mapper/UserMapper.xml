@@ -5,7 +5,7 @@
     <id column="u_id" jdbcType="INTEGER" property="uId" />
     <result column="u_number" jdbcType="INTEGER" property="uNumber" />
     <result column="u_name" jdbcType="VARCHAR" property="uName" />
-    <result column="phone" jdbcType="INTEGER" property="phone" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="emaile" jdbcType="VARCHAR" property="emaile" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="status" jdbcType="INTEGER" property="status" />
@@ -28,7 +28,7 @@
       phone, emaile, create_date, 
       status)
     values (#{uId,jdbcType=INTEGER}, #{uNumber,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=INTEGER}, #{emaile,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{phone,jdbcType=VARCHAR}, #{emaile,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.pcs.pojo.User">
@@ -67,7 +67,7 @@
         #{uName,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
-        #{phone,jdbcType=INTEGER},
+        #{phone,jdbcType=VARCHAR},
       </if>
       <if test="emaile != null">
         #{emaile,jdbcType=VARCHAR},
@@ -90,7 +90,7 @@
         u_name = #{uName,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
-        phone = #{phone,jdbcType=INTEGER},
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="emaile != null">
         emaile = #{emaile,jdbcType=VARCHAR},
@@ -108,7 +108,7 @@
     update user
     set u_number = #{uNumber,jdbcType=INTEGER},
       u_name = #{uName,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
       emaile = #{emaile,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER}

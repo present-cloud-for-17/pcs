@@ -1,73 +1,97 @@
 package com.pcs.pojo;
 
-public class DictionaryDetail {
-    private Integer ddId;
+import java.io.Serializable;
 
-    private Integer dId;
+public class DictionaryDetail implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3129372706088138127L;
 
-    private String englishTag;
+	private Integer ddId;
 
-    private Integer keyValue;
+	private Integer dId;
 
-    private Boolean isDefault;
+	private String englishTag;
 
-    private String value;
+	private Integer keyValue;
 
-    private Integer sort;
+	private Boolean isDefault;
 
-    public Integer getDdId() {
-        return ddId;
-    }
+	private String value;
 
-    public void setDdId(Integer ddId) {
-        this.ddId = ddId;
-    }
+	private Integer sort;
 
-    public Integer getdId() {
-        return dId;
-    }
+	public DictionaryDetail() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public void setdId(Integer dId) {
-        this.dId = dId;
-    }
+	public DictionaryDetail(Integer ddId, Integer dId, String englishTag, Integer keyValue, Boolean isDefault,
+			String value, Integer sort) {
+		super();
+		this.ddId = ddId;
+		this.dId = dId;
+		this.englishTag = englishTag;
+		this.keyValue = keyValue;
+		this.isDefault = isDefault;
+		this.value = value;
+		this.sort = sort;
+	}
 
-    public String getEnglishTag() {
-        return englishTag;
-    }
+	public Integer getDdId() {
+		return ddId;
+	}
 
-    public void setEnglishTag(String englishTag) {
-        this.englishTag = englishTag == null ? null : englishTag.trim();
-    }
+	public void setDdId(Integer ddId) {
+		this.ddId = ddId;
+	}
 
-    public Integer getKeyValue() {
-        return keyValue;
-    }
+	public Integer getdId() {
+		return dId;
+	}
 
-    public void setKeyValue(Integer keyValue) {
-        this.keyValue = keyValue;
-    }
+	public void setdId(Integer dId) {
+		this.dId = dId;
+	}
 
-    public Boolean getIsDefault() {
-        return isDefault;
-    }
+	public String getEnglishTag() {
+		return englishTag;
+	}
 
-    public void setIsDefault(Boolean isDefault) {
-        this.isDefault = isDefault;
-    }
+	public void setEnglishTag(String englishTag) {
+		this.englishTag = englishTag == null ? null : englishTag.trim();
+	}
 
-    public String getValue() {
-        return value;
-    }
+	public Integer getKeyValue() {
+		return keyValue;
+	}
 
-    public void setValue(String value) {
-        this.value = value == null ? null : value.trim();
-    }
+	public void setKeyValue(Integer keyValue) {
+		this.keyValue = keyValue;
+	}
 
-    public Integer getSort() {
-        return sort;
-    }
+	public Boolean getIsDefault() {
+		return isDefault;
+	}
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
+	public void setIsDefault(Boolean isDefault) {
+		this.isDefault = isDefault;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value == null ? null : value.trim();
+	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
 }
