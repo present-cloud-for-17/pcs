@@ -1,5 +1,7 @@
 package com.pcs.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -52,6 +54,12 @@ public class MenuButtonServiceImpl implements IMenuButtonService {
 		// TODO Auto-generated method stub
 		return this.menuButtonDao.updateByPrimaryKey(record);
 
+	}
+
+	@Override
+	public List<MenuButton> findAll() {
+		// TODO Auto-generated method stub
+		return this.menuButtonDao.findAll();
 	}
 
 }

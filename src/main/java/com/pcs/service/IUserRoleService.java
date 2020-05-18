@@ -1,5 +1,7 @@
 package com.pcs.service;
 
+import java.util.List;
+
 import com.pcs.pojo.UserRole;
 
 public interface IUserRoleService {
@@ -14,4 +16,7 @@ public interface IUserRoleService {
 	int updateByPrimaryKeySelective(UserRole record);
 
 	int updateByPrimaryKey(UserRole record);
+	
+    List<UserRole> findAll();
+
 }

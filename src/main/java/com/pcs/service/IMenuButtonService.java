@@ -1,5 +1,7 @@
 package com.pcs.service;
 
+import java.util.List;
+
 import com.pcs.pojo.MenuButton;
 
 public interface IMenuButtonService {
@@ -14,4 +16,7 @@ public interface IMenuButtonService {
 	int updateByPrimaryKeySelective(MenuButton record);
 
 	int updateByPrimaryKey(MenuButton record);
+	
+    List<MenuButton> findAll();
+
 }

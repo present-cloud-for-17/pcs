@@ -54,7 +54,7 @@ public class RoleController {
      * @param role
      * @return
      */
-    @RequestMapping(value = "/insertUser.do",method = {RequestMethod.POST})
+    @RequestMapping(value = "/insert.do",method = {RequestMethod.POST})
     public @ResponseBody Integer insertSelective(@RequestParam Role role){
         return  this.roleService.insertSelective(role);
     }

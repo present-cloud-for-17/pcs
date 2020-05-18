@@ -1,5 +1,7 @@
 package com.pcs.dao;
 
+import java.util.List;
+
 import com.pcs.pojo.RolePermission;
 
 public interface RolePermissionMapper {
@@ -14,4 +16,7 @@ public interface RolePermissionMapper {
     int updateByPrimaryKeySelective(RolePermission record);
 
     int updateByPrimaryKey(RolePermission record);
+    
+    List<RolePermission> findAll();
+
 }

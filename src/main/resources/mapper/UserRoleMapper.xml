@@ -79,4 +79,8 @@
       status = #{status,jdbcType=INTEGER}
     where ur_id = #{urId,jdbcType=INTEGER}
   </update>
+ 
+   <select id="findAll" resultType="com.pcs.pojo.UserRole">
+        SELECT * FROM user_role ORDER BY ur_id DESC
+   </select>
 </mapper>

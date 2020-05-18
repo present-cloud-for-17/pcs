@@ -1,5 +1,7 @@
 package com.pcs.dao;
 
+import java.util.List;
+
 import com.pcs.pojo.UserRole;
 
 public interface UserRoleMapper {
@@ -14,4 +16,7 @@ public interface UserRoleMapper {
     int updateByPrimaryKeySelective(UserRole record);
 
     int updateByPrimaryKey(UserRole record);
+    
+    List<UserRole> findAll();
+
 }

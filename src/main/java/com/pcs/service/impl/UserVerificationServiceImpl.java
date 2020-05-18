@@ -1,5 +1,7 @@
 package com.pcs.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -58,6 +60,12 @@ public class UserVerificationServiceImpl implements IUserVerificationService {
 	public UserVerification login(UserVerification record) {
 		// TODO Auto-generated method stub
 		return this.userVerificationDao.login(record);
+	}
+
+	@Override
+	public List<UserVerification> findAll() {
+		// TODO Auto-generated method stub
+		return this.userVerificationDao.findAll();
 	}
 
 }

@@ -114,5 +114,7 @@
       sort = #{sort,jdbcType=INTEGER}
     where dd_id = #{ddId,jdbcType=INTEGER}
   </update>
- 
+  <select id="findAll" resultType="com.pcs.pojo.DictionaryDetail">
+        SELECT * FROM dictionary_detail ORDER BY dd_id DESC
+   </select>
 </mapper>

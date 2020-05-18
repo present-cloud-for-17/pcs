@@ -114,4 +114,8 @@
       last_modify_date = #{lastModifyDate,jdbcType=TIMESTAMP}
     where p_id = #{pId,jdbcType=INTEGER}
   </update>
+ 
+  <select id="findAll" resultType="com.pcs.pojo.Permission">
+        SELECT * FROM permission ORDER BY p_id DESC
+   </select>
 </mapper>

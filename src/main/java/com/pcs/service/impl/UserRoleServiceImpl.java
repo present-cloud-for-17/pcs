@@ -1,5 +1,7 @@
 package com.pcs.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -52,6 +54,12 @@ public class UserRoleServiceImpl implements IUserRoleService {
 		// TODO Auto-generated method stub
 		return this.userRoleDao.updateByPrimaryKey(record);
 
+	}
+
+	@Override
+	public List<UserRole> findAll() {
+		// TODO Auto-generated method stub
+		return this.userRoleDao.findAll();
 	}
 
 }

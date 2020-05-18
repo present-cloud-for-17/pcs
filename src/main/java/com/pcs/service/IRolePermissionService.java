@@ -1,5 +1,7 @@
 package com.pcs.service;
 
+import java.util.List;
+
 import com.pcs.pojo.RolePermission;
 
 public interface IRolePermissionService {
@@ -14,4 +16,7 @@ public interface IRolePermissionService {
 	int updateByPrimaryKeySelective(RolePermission record);
 
 	int updateByPrimaryKey(RolePermission record);
+	
+    List<RolePermission> findAll();
+
 }

@@ -1,11 +1,14 @@
 package com.pcs.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.Permission;
 import com.pcs.service.IPermissionService;
@@ -16,11 +19,55 @@ public class PermissionController {
 	@Resource
 	private IPermissionService permissionService;
 
-	@RequestMapping("/selectByPrimaryKey")
-	public String toIndex(HttpServletRequest request, Model model) {
-		int pId = Integer.parseInt(request.getParameter("pid"));
-		Permission permission = this.permissionService.selectByPrimaryKey(pId);
-		model.addAttribute("permission", permission);
-		return "showPermission";
+	/**
+	 * 获取单个权限信息
+	 * 
+	 * @param pId
+	 * @return
+	 */
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
+	public @ResponseBody Permission selectByPrimaryKey(@RequestParam Integer pId) {
+		return this.permissionService.selectByPrimaryKey(pId);
+	}
+
+	/**
+	 * 删除单个权限信息
+	 * 
+	 * @param pId
+	 * @return
+	 */
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer pId) {
+		return this.permissionService.deleteByPrimaryKey(pId);
+	}
+
+	/**
+	 * 修改单个权限信息
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam Permission permission) {
+		return this.permissionService.updateByPrimaryKeySelective(permission);
+	}
+
+	/**
+	 * 添加单个权限信息
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer insertSelective(@RequestParam Permission permission) {
+		return this.permissionService.insertSelective(permission);
+	}
+
+	/**
+	 * 查找全部权限信息
+	 */
+	@RequestMapping("/findAll.do")
+	public @ResponseBody List<Permission> findAll() {
+		return this.permissionService.findAll();
 	}
 }

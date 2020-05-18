@@ -68,4 +68,7 @@
       english_name = #{englishName,jdbcType=INTEGER}
     where d_id = #{dId,jdbcType=INTEGER}
   </update>
+   <select id="findAll" resultType="com.pcs.pojo.Dictionary">
+        SELECT * FROM dictionary ORDER BY d_id DESC
+   </select>
 </mapper>

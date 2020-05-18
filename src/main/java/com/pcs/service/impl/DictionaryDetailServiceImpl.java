@@ -1,5 +1,7 @@
 package com.pcs.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -52,6 +54,12 @@ public class DictionaryDetailServiceImpl implements IDictionaryDetailService {
 		// TODO Auto-generated method stub
 		return this.dictionaryDetailDao.updateByPrimaryKey(record);
 
+	}
+
+	@Override
+	public List<DictionaryDetail> findAll() {
+		// TODO Auto-generated method stub
+		return this.dictionaryDetailDao.findAll();
 	}
 
 }

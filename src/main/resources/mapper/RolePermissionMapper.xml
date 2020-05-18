@@ -79,4 +79,8 @@
       status = #{status,jdbcType=INTEGER}
     where rp_id = #{rpId,jdbcType=INTEGER}
   </update>
+ 
+  <select id="findAll" resultType="com.pcs.pojo.RolePermission">
+        SELECT * FROM role_permission ORDER BY rp_id DESC
+   </select>
 </mapper>

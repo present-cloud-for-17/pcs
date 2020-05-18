@@ -1,5 +1,7 @@
 package com.pcs.service;
 
+import java.util.List;
+
 import com.pcs.pojo.Dictionary;
 
 public interface IDictionaryService {
@@ -14,4 +16,7 @@ public interface IDictionaryService {
 	int updateByPrimaryKeySelective(Dictionary record);
 
 	int updateByPrimaryKey(Dictionary record);
+	
+    List<Dictionary> findAll();
+
 }

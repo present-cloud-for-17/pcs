@@ -1,5 +1,7 @@
 package com.pcs.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -52,6 +54,12 @@ public class ButtonServiceImpl implements IButtonService {
 		// TODO Auto-generated method stub
 		return this.buttonDao.updateByPrimaryKey(record);
 
+	}
+
+	@Override
+	public List<Button> findAll() {
+		// TODO Auto-generated method stub
+		return  this.buttonDao.findAll();
 	}
 
 }

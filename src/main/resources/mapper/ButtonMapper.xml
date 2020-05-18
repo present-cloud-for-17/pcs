@@ -125,4 +125,7 @@
       last_modify_date = #{lastModifyDate,jdbcType=TIMESTAMP}
     where b_id = #{bId,jdbcType=INTEGER}
   </update>
+   <select id="findAll" resultType="com.pcs.pojo.Button">
+        SELECT * FROM button ORDER BY b_id DESC
+   </select>
 </mapper>

@@ -1,14 +1,7 @@
 package com.pcs.pojo;
 
-import java.io.Serializable;
-
-public class RolePermission implements Serializable{
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = -3648560770240139647L;
-
-	private Integer rpId;
+public class RolePermission {
+    private Integer rpId;
 
     private Integer rId;
 
@@ -16,20 +9,7 @@ public class RolePermission implements Serializable{
 
     private Integer status;
 
-    public RolePermission() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public RolePermission(Integer rpId, Integer rId, Integer pId, Integer status) {
-		super();
-		this.rpId = rpId;
-		this.rId = rId;
-		this.pId = pId;
-		this.status = status;
-	}
-
-	public Integer getRpId() {
+    public Integer getRpId() {
         return rpId;
     }
 

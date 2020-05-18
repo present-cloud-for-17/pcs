@@ -79,4 +79,7 @@
       status = #{status,jdbcType=INTEGER}
     where mb_id = #{mbId,jdbcType=INTEGER}
   </update>
+   <select id="findAll" resultType="com.pcs.pojo.MenuButton">
+        SELECT * FROM menu_button ORDER BY mb_id DESC
+   </select>
 </mapper>

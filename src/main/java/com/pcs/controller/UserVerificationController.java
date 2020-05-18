@@ -1,11 +1,15 @@
 package com.pcs.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.UserVerification;
@@ -17,12 +21,56 @@ public class UserVerificationController {
 	@Resource
 	private IUserVerificationService userVerificationService;
 
-	@RequestMapping("/selectByPrimaryKey")
-	public String selectByPrimaryKey(HttpServletRequest request, Model model) {
-		int uvId = Integer.parseInt(request.getParameter("uvid"));
-		UserVerification userVerification = this.userVerificationService.selectByPrimaryKey(uvId);
-		model.addAttribute("userVerification", userVerification);
-		return "showUserVerification";
+	/**
+	 * 获取单个用户权限信息
+	 * 
+	 * @param uvId
+	 * @return
+	 */
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
+	public @ResponseBody UserVerification selectByPrimaryKey(@RequestParam Integer uvId) {
+		return this.userVerificationService.selectByPrimaryKey(uvId);
+	}
+
+	/**
+	 * 删除单个用户权限信息
+	 * 
+	 * @param uvId
+	 * @return
+	 */
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer uvId) {
+		return this.userVerificationService.deleteByPrimaryKey(uvId);
+	}
+
+	/**
+	 * 修改单个用户权限信息
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam UserVerification userVerification) {
+		return this.userVerificationService.updateByPrimaryKeySelective(userVerification);
+	}
+
+	/**
+	 * 添加单个用户权限信息
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer insertSelective(@RequestParam UserVerification userVerification) {
+		return this.userVerificationService.insertSelective(userVerification);
+	}
+
+	/**
+	 * 查找全部用户权限信息
+	 */
+	@RequestMapping("/findAll.do")
+	public @ResponseBody List<UserVerification> findAll() {
+		return this.userVerificationService.findAll();
 	}
 
 	@RequestMapping("/login")

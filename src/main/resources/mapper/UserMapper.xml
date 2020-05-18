@@ -114,6 +114,7 @@
       status = #{status,jdbcType=INTEGER}
     where u_id = #{uId,jdbcType=INTEGER}
   </update>
+ 
   <select id="findAll" resultType="com.pcs.pojo.User">
         SELECT * FROM user ORDER BY u_id DESC
    </select>

@@ -1,5 +1,7 @@
 package com.pcs.service;
 
+import java.util.List;
+
 import com.pcs.pojo.UserVerification;
 
 public interface IUserVerificationService {
@@ -16,4 +18,7 @@ public interface IUserVerificationService {
 	int updateByPrimaryKey(UserVerification record);
 
 	UserVerification login(UserVerification record);
+	
+    List<UserVerification> findAll();
+
 }

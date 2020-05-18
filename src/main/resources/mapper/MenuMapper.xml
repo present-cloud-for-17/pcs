@@ -172,4 +172,8 @@
       last_modify_date = #{lastModifyDate,jdbcType=TIMESTAMP}
     where m_id = #{mId,jdbcType=INTEGER}
   </update>
+ 
+   <select id="findAll" resultType="com.pcs.pojo.Menu">
+        SELECT * FROM menu ORDER BY m_id DESC
+   </select>
 </mapper>

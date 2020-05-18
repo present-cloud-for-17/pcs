@@ -114,6 +114,7 @@
       last_modify_date = #{lastModifyDate,jdbcType=TIMESTAMP}
     where r_id = #{rId,jdbcType=INTEGER}
   </update>
+  
    <select id="findAll" resultType="com.pcs.pojo.Role">
         SELECT * FROM role ORDER BY r_id DESC
    </select>

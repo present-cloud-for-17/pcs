@@ -1,5 +1,7 @@
 package com.pcs.dao;
 
+import java.util.List;
+
 import com.pcs.pojo.Menu;
 
 public interface MenuMapper {
@@ -14,4 +16,7 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+    
+    List<Menu> findAll();
+
 }

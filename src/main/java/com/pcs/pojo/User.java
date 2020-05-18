@@ -17,24 +17,7 @@ public class User {
 
     private Integer status;
 
-    public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public User(Integer uId, Integer uNumber, String uName, String phone, String emaile, Date createDate,
-			Integer status) {
-		super();
-		this.uId = uId;
-		this.uNumber = uNumber;
-		this.uName = uName;
-		this.phone = phone;
-		this.emaile = emaile;
-		this.createDate = createDate;
-		this.status = status;
-	}
-
-	public Integer getuId() {
+    public Integer getuId() {
         return uId;
     }
 

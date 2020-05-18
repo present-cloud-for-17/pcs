@@ -1,5 +1,7 @@
 package com.pcs.dao;
 
+import java.util.List;
+
 import com.pcs.pojo.DictionaryDetail;
 
 public interface DictionaryDetailMapper {
@@ -14,4 +16,7 @@ public interface DictionaryDetailMapper {
     int updateByPrimaryKeySelective(DictionaryDetail record);
 
     int updateByPrimaryKey(DictionaryDetail record);
+    
+    List<DictionaryDetail> findAll();
+
 }

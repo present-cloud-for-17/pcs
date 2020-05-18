@@ -1,5 +1,7 @@
 package com.pcs.dao;
 
+import java.util.List;
+
 import com.pcs.pojo.Button;
 
 public interface ButtonMapper {
@@ -14,4 +16,7 @@ public interface ButtonMapper {
     int updateByPrimaryKeySelective(Button record);
 
     int updateByPrimaryKey(Button record);
+    
+    List<Button> findAll();
+
 }

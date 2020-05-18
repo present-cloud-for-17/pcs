@@ -1,5 +1,7 @@
 package com.pcs.service;
 
+import java.util.List;
+
 import com.pcs.pojo.Button;
 
 public interface IButtonService {
@@ -14,4 +16,7 @@ public interface IButtonService {
 	int updateByPrimaryKeySelective(Button record);
 
 	int updateByPrimaryKey(Button record);
+	
+    List<Button> findAll();
+
 }

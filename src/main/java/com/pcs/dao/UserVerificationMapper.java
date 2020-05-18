@@ -1,5 +1,7 @@
 package com.pcs.dao;
 
+import java.util.List;
+
 import com.pcs.pojo.UserVerification;
 
 public interface UserVerificationMapper {
@@ -15,5 +17,8 @@ public interface UserVerificationMapper {
 
 	int updateByPrimaryKey(UserVerification record);
 
+	List<UserVerification> findAll();
+
 	UserVerification login(UserVerification record);
+
 }
