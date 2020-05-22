@@ -1,43 +1,63 @@
 package com.pcs.pojo;
 
-public class UserRole {
-    private Integer urId;
+import java.io.Serializable;
 
-    private Integer uId;
+public class UserRole implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3261168710191061920L;
 
-    private Integer rId;
+	private Integer urId;
 
-    private Integer status;
+	private Integer uId;
 
-    public Integer getUrId() {
-        return urId;
-    }
+	private Integer rId;
 
-    public void setUrId(Integer urId) {
-        this.urId = urId;
-    }
+	private Integer status;
 
-    public Integer getuId() {
-        return uId;
-    }
+	public UserRole() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public void setuId(Integer uId) {
-        this.uId = uId;
-    }
+	public UserRole(Integer urId, Integer uId, Integer rId, Integer status) {
+		super();
+		this.urId = urId;
+		this.uId = uId;
+		this.rId = rId;
+		this.status = status;
+	}
 
-    public Integer getrId() {
-        return rId;
-    }
+	public Integer getUrId() {
+		return urId;
+	}
 
-    public void setrId(Integer rId) {
-        this.rId = rId;
-    }
+	public void setUrId(Integer urId) {
+		this.urId = urId;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public Integer getuId() {
+		return uId;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public void setuId(Integer uId) {
+		this.uId = uId;
+	}
+
+	public Integer getrId() {
+		return rId;
+	}
+
+	public void setrId(Integer rId) {
+		this.rId = rId;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 }

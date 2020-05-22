@@ -1,7 +1,14 @@
 package com.pcs.pojo;
 
-public class MenuButton {
-    private Integer mbId;
+import java.io.Serializable;
+
+public class MenuButton implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7563201421034746594L;
+
+	private Integer mbId;
 
     private Integer mId;
 
@@ -9,7 +16,21 @@ public class MenuButton {
 
     private Integer status;
 
-    public Integer getMbId() {
+    
+    public MenuButton() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public MenuButton(Integer mbId, Integer mId, Integer bId, Integer status) {
+		super();
+		this.mbId = mbId;
+		this.mId = mId;
+		this.bId = bId;
+		this.status = status;
+	}
+
+	public Integer getMbId() {
         return mbId;
     }
 

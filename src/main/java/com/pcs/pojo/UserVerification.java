@@ -1,73 +1,102 @@
 package com.pcs.pojo;
 
-public class UserVerification {
-    private Integer uvId;
+import java.io.Serializable;
 
-    private Integer uId;
+public class UserVerification implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5185980027362925324L;
 
-    private Integer loginType;
+	private Integer uvId;
 
-    private Boolean isThird;
+	private Integer uId;
 
-    private String loginToken;
+	private Integer loginType;
 
-    private String passwordToken;
+	private String loginToken;
 
-    private Integer status;
+	private String passwordToken;
 
-    public Integer getUvId() {
-        return uvId;
-    }
+	private Integer status;
 
-    public void setUvId(Integer uvId) {
-        this.uvId = uvId;
-    }
+	public UserVerification() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public Integer getuId() {
-        return uId;
-    }
+	public UserVerification(Integer uvId, Integer uId, Integer loginType, String loginToken, String passwordToken,
+			Integer status) {
+		super();
+		this.uvId = uvId;
+		this.uId = uId;
+		this.loginType = loginType;
+		this.loginToken = loginToken;
+		this.passwordToken = passwordToken;
+		this.status = status;
+	}
 
-    public void setuId(Integer uId) {
-        this.uId = uId;
-    }
+	public UserVerification(Integer uId, Integer loginType, String loginToken, String passwordToken, Integer status) {
+		super();
+		this.uId = uId;
+		this.loginType = loginType;
+		this.loginToken = loginToken;
+		this.passwordToken = passwordToken;
+		this.status = status;
+	}
 
-    public Integer getLoginType() {
-        return loginType;
-    }
+	public Integer getUvId() {
+		return uvId;
+	}
 
-    public void setLoginType(Integer loginType) {
-        this.loginType = loginType;
-    }
+	public void setUvId(Integer uvId) {
+		this.uvId = uvId;
+	}
 
-    public Boolean getIsThird() {
-        return isThird;
-    }
+	public Integer getuId() {
+		return uId;
+	}
 
-    public void setIsThird(Boolean isThird) {
-        this.isThird = isThird;
-    }
+	public void setuId(Integer uId) {
+		this.uId = uId;
+	}
 
-    public String getLoginToken() {
-        return loginToken;
-    }
+	public Integer getLoginType() {
+		return loginType;
+	}
 
-    public void setLoginToken(String loginToken) {
-        this.loginToken = loginToken == null ? null : loginToken.trim();
-    }
+	public void setLoginType(Integer loginType) {
+		this.loginType = loginType;
+	}
 
-    public String getPasswordToken() {
-        return passwordToken;
-    }
+	public String getLoginToken() {
+		return loginToken;
+	}
 
-    public void setPasswordToken(String passwordToken) {
-        this.passwordToken = passwordToken == null ? null : passwordToken.trim();
-    }
+	public void setLoginToken(String loginToken) {
+		this.loginToken = loginToken == null ? null : loginToken.trim();
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public String getPasswordToken() {
+		return passwordToken;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public void setPasswordToken(String passwordToken) {
+		this.passwordToken = passwordToken == null ? null : passwordToken.trim();
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "UserVerification [uvId=" + uvId + ", uId=" + uId + ", loginType=" + loginType + ", loginToken="
+				+ loginToken + ", passwordToken=" + passwordToken + ", status=" + status + "]";
+	}
+
 }

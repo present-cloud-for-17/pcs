@@ -1,75 +1,98 @@
 package com.pcs.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
-    private Integer uId;
+public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6680738692943252902L;
 
-    private Integer uNumber;
+	private Integer uId;
 
-    private String uName;
+	private String uNumber;
 
-    private String phone;
+	private String uName;
 
-    private String emaile;
+	private String phone;
 
-    private Date createDate;
+	private String emaile;
 
-    private Integer status;
+	private Date createDate;
 
-    public Integer getuId() {
-        return uId;
-    }
+	private Integer status;
 
-    public void setuId(Integer uId) {
-        this.uId = uId;
-    }
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public Integer getuNumber() {
-        return uNumber;
-    }
+	public User(Integer uId, String uNumber, String uName, String phone, String emaile, Date createDate,
+			Integer status) {
+		super();
+		this.uId = uId;
+		this.uNumber = uNumber;
+		this.uName = uName;
+		this.phone = phone;
+		this.emaile = emaile;
+		this.createDate = createDate;
+		this.status = status;
+	}
 
-    public void setuNumber(Integer uNumber) {
-        this.uNumber = uNumber;
-    }
+	public Integer getuId() {
+		return uId;
+	}
 
-    public String getuName() {
-        return uName;
-    }
+	public void setuId(Integer uId) {
+		this.uId = uId;
+	}
 
-    public void setuName(String uName) {
-        this.uName = uName == null ? null : uName.trim();
-    }
+	public String getuNumber() {
+		return uNumber;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public void setuNumber(String uNumber) {
+		this.uNumber = uNumber == null ? null : uNumber.trim();
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
+	public String getuName() {
+		return uName;
+	}
 
-    public String getEmaile() {
-        return emaile;
-    }
+	public void setuName(String uName) {
+		this.uName = uName == null ? null : uName.trim();
+	}
 
-    public void setEmaile(String emaile) {
-        this.emaile = emaile == null ? null : emaile.trim();
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public Date getCreateDate() {
-        return createDate;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone == null ? null : phone.trim();
+	}
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+	public String getEmaile() {
+		return emaile;
+	}
 
-    public Integer getStatus() {
-        return status;
-    }
+	public void setEmaile(String emaile) {
+		this.emaile = emaile == null ? null : emaile.trim();
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 }

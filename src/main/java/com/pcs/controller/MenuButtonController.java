@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.MenuButton;
@@ -26,7 +26,7 @@ public class MenuButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody MenuButton selectByPrimaryKey(@RequestParam Integer mbId) {
+	public @ResponseBody MenuButton selectByPrimaryKey(@RequestBody Integer mbId) {
 		return this.menuButtonService.selectByPrimaryKey(mbId);
 	}
 
@@ -37,7 +37,7 @@ public class MenuButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer mbId) {
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer mbId) {
 		return this.menuButtonService.deleteByPrimaryKey(mbId);
 	}
 
@@ -48,7 +48,7 @@ public class MenuButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam MenuButton menuButton) {
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody MenuButton menuButton) {
 		return this.menuButtonService.updateByPrimaryKeySelective(menuButton);
 	}
 
@@ -59,7 +59,7 @@ public class MenuButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestParam MenuButton menuButton) {
+	public @ResponseBody Integer insertSelective(@RequestBody MenuButton menuButton) {
 		return this.menuButtonService.insertSelective(menuButton);
 	}
 

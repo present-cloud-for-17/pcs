@@ -1,125 +1,154 @@
 package com.pcs.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Menu {
-    private Integer mId;
+public class Menu implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3173970956537163347L;
 
-    private Integer parentId;
+	private Integer mId;
 
-    private String menuName;
+	private Integer parentId;
 
-    private String icon;
+	private String menuName;
 
-    private String link;
+	private String icon;
 
-    private Integer sort;
+	private String link;
 
-    private Boolean isDisplay;
+	private Integer sort;
 
-    private Boolean isPage;
+	private Boolean isDisplay;
 
-    private Integer creator;
+	private Boolean isPage;
 
-    private Date createTime;
+	private Integer creator;
 
-    private Integer lastModifier;
+	private Date createTime;
 
-    private Date lastModifyDate;
+	private Integer lastModifier;
 
-    public Integer getmId() {
-        return mId;
-    }
+	private Date lastModifyDate;
 
-    public void setmId(Integer mId) {
-        this.mId = mId;
-    }
+	public Menu() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public Integer getParentId() {
-        return parentId;
-    }
+	public Menu(Integer mId, Integer parentId, String menuName, String icon, String link, Integer sort,
+			Boolean isDisplay, Boolean isPage, Integer creator, Date createTime, Integer lastModifier,
+			Date lastModifyDate) {
+		super();
+		this.mId = mId;
+		this.parentId = parentId;
+		this.menuName = menuName;
+		this.icon = icon;
+		this.link = link;
+		this.sort = sort;
+		this.isDisplay = isDisplay;
+		this.isPage = isPage;
+		this.creator = creator;
+		this.createTime = createTime;
+		this.lastModifier = lastModifier;
+		this.lastModifyDate = lastModifyDate;
+	}
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
+	public Integer getmId() {
+		return mId;
+	}
 
-    public String getMenuName() {
-        return menuName;
-    }
+	public void setmId(Integer mId) {
+		this.mId = mId;
+	}
 
-    public void setMenuName(String menuName) {
-        this.menuName = menuName == null ? null : menuName.trim();
-    }
+	public Integer getParentId() {
+		return parentId;
+	}
 
-    public String getIcon() {
-        return icon;
-    }
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}
 
-    public void setIcon(String icon) {
-        this.icon = icon == null ? null : icon.trim();
-    }
+	public String getMenuName() {
+		return menuName;
+	}
 
-    public String getLink() {
-        return link;
-    }
+	public void setMenuName(String menuName) {
+		this.menuName = menuName == null ? null : menuName.trim();
+	}
 
-    public void setLink(String link) {
-        this.link = link == null ? null : link.trim();
-    }
+	public String getIcon() {
+		return icon;
+	}
 
-    public Integer getSort() {
-        return sort;
-    }
+	public void setIcon(String icon) {
+		this.icon = icon == null ? null : icon.trim();
+	}
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
+	public String getLink() {
+		return link;
+	}
 
-    public Boolean getIsDisplay() {
-        return isDisplay;
-    }
+	public void setLink(String link) {
+		this.link = link == null ? null : link.trim();
+	}
 
-    public void setIsDisplay(Boolean isDisplay) {
-        this.isDisplay = isDisplay;
-    }
+	public Integer getSort() {
+		return sort;
+	}
 
-    public Boolean getIsPage() {
-        return isPage;
-    }
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
 
-    public void setIsPage(Boolean isPage) {
-        this.isPage = isPage;
-    }
+	public Boolean getIsDisplay() {
+		return isDisplay;
+	}
 
-    public Integer getCreator() {
-        return creator;
-    }
+	public void setIsDisplay(Boolean isDisplay) {
+		this.isDisplay = isDisplay;
+	}
 
-    public void setCreator(Integer creator) {
-        this.creator = creator;
-    }
+	public Boolean getIsPage() {
+		return isPage;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setIsPage(Boolean isPage) {
+		this.isPage = isPage;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public Integer getCreator() {
+		return creator;
+	}
 
-    public Integer getLastModifier() {
-        return lastModifier;
-    }
+	public void setCreator(Integer creator) {
+		this.creator = creator;
+	}
 
-    public void setLastModifier(Integer lastModifier) {
-        this.lastModifier = lastModifier;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public Date getLastModifyDate() {
-        return lastModifyDate;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setLastModifyDate(Date lastModifyDate) {
-        this.lastModifyDate = lastModifyDate;
-    }
+	public Integer getLastModifier() {
+		return lastModifier;
+	}
+
+	public void setLastModifier(Integer lastModifier) {
+		this.lastModifier = lastModifier;
+	}
+
+	public Date getLastModifyDate() {
+		return lastModifyDate;
+	}
+
+	public void setLastModifyDate(Date lastModifyDate) {
+		this.lastModifyDate = lastModifyDate;
+	}
 }

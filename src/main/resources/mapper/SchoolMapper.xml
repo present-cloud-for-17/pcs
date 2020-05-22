@@ -79,8 +79,8 @@
       major = #{major,jdbcType=VARCHAR}
     where s_id = #{sId,jdbcType=INTEGER}
   </update>
- 
- <select id="findAll" resultType="com.pcs.pojo.School">
-        SELECT * FROM school ORDER BY s_id DESC
-   </select>
+
+	<select id="findAll" resultType="com.pcs.pojo.School">
+		SELECT * FROM school ORDER BY s_id DESC
+	</select>
 </mapper>

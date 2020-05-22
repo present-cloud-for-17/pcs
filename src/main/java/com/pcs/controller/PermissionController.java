@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.Permission;
@@ -26,7 +26,7 @@ public class PermissionController {
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Permission selectByPrimaryKey(@RequestParam Integer pId) {
+	public @ResponseBody Permission selectByPrimaryKey(@RequestBody Integer pId) {
 		return this.permissionService.selectByPrimaryKey(pId);
 	}
 
@@ -37,7 +37,7 @@ public class PermissionController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer pId) {
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer pId) {
 		return this.permissionService.deleteByPrimaryKey(pId);
 	}
 
@@ -48,7 +48,7 @@ public class PermissionController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam Permission permission) {
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Permission permission) {
 		return this.permissionService.updateByPrimaryKeySelective(permission);
 	}
 
@@ -59,7 +59,7 @@ public class PermissionController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestParam Permission permission) {
+	public @ResponseBody Integer insertSelective(@RequestBody Permission permission) {
 		return this.permissionService.insertSelective(permission);
 	}
 

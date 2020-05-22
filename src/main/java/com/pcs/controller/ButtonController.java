@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.Button;
@@ -26,7 +26,7 @@ public class ButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Button selectByPrimaryKey(@RequestParam Integer bId) {
+	public @ResponseBody Button selectByPrimaryKey(@RequestBody Integer bId) {
 		return this.buttonService.selectByPrimaryKey(bId);
 	}
 
@@ -37,7 +37,7 @@ public class ButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer bId) {
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer bId) {
 		return this.buttonService.deleteByPrimaryKey(bId);
 	}
 
@@ -48,7 +48,7 @@ public class ButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam Button Button) {
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Button Button) {
 		return this.buttonService.updateByPrimaryKeySelective(Button);
 	}
 
@@ -59,7 +59,7 @@ public class ButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestParam Button Button) {
+	public @ResponseBody Integer insertSelective(@RequestBody Button Button) {
 		return this.buttonService.insertSelective(Button);
 	}
 

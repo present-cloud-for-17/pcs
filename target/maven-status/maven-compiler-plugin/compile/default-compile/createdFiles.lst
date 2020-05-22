@@ -1,9 +1,12 @@
 com\pcs\pojo\MenuButton.class
+com\pcs\utils\MD5Encryption.class
 com\pcs\service\impl\DictionaryServiceImpl.class
+com\pcs\utils\HttpInterceptor.class
 com\pcs\controller\RolePermissionController.class
 com\pcs\dao\MenuMapper.class
 com\pcs\dao\RolePermissionMapper.class
 com\pcs\service\impl\UserRoleServiceImpl.class
+com\pcs\utils\JWTUtil.class
 com\pcs\dao\UserRoleMapper.class
 com\pcs\service\IRoleService.class
 com\pcs\pojo\DictionaryDetail.class
@@ -26,10 +29,12 @@ com\pcs\service\IMenuButtonService.class
 com\pcs\service\IRolePermissionService.class
 com\pcs\pojo\School.class
 com\pcs\pojo\UserVerification.class
+com\pcs\utils\ResponseData.class
 com\pcs\service\IMenuService.class
 com\pcs\pojo\Permission.class
 com\pcs\dao\DictionaryMapper.class
 com\pcs\controller\RoleController.class
+com\pcs\utils\HeaderTokenInterceptor.class
 com\pcs\dao\UserMapper.class
 com\pcs\service\IDictionaryService.class
 com\pcs\controller\PermissionController.class

@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.DictionaryDetail;
@@ -26,7 +26,7 @@ public class DictionaryDetailController {
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody DictionaryDetail selectByPrimaryKey(@RequestParam Integer ddId) {
+	public @ResponseBody DictionaryDetail selectByPrimaryKey(@RequestBody Integer ddId) {
 		return this.dictionaryDetailService.selectByPrimaryKey(ddId);
 	}
 
@@ -37,7 +37,7 @@ public class DictionaryDetailController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer ddId) {
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer ddId) {
 		return this.dictionaryDetailService.deleteByPrimaryKey(ddId);
 	}
 
@@ -48,7 +48,7 @@ public class DictionaryDetailController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam DictionaryDetail dictionaryDetail) {
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody DictionaryDetail dictionaryDetail) {
 		return this.dictionaryDetailService.updateByPrimaryKeySelective(dictionaryDetail);
 	}
 
@@ -59,7 +59,7 @@ public class DictionaryDetailController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestParam DictionaryDetail dictionaryDetail) {
+	public @ResponseBody Integer insertSelective(@RequestBody DictionaryDetail dictionaryDetail) {
 		return this.dictionaryDetailService.insertSelective(dictionaryDetail);
 	}
 

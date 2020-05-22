@@ -1,43 +1,63 @@
 package com.pcs.pojo;
 
-public class School {
-    private Integer sId;
+import java.io.Serializable;
 
-    private String sName;
+public class School implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4848610531873777473L;
 
-    private String college;
+	private Integer sId;
 
-    private String major;
+	private String sName;
 
-    public Integer getsId() {
-        return sId;
-    }
+	private String college;
 
-    public void setsId(Integer sId) {
-        this.sId = sId;
-    }
+	private String major;
 
-    public String getsName() {
-        return sName;
-    }
+	public School() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public void setsName(String sName) {
-        this.sName = sName == null ? null : sName.trim();
-    }
+	public School(Integer sId, String sName, String college, String major) {
+		super();
+		this.sId = sId;
+		this.sName = sName;
+		this.college = college;
+		this.major = major;
+	}
 
-    public String getCollege() {
-        return college;
-    }
+	public Integer getsId() {
+		return sId;
+	}
 
-    public void setCollege(String college) {
-        this.college = college == null ? null : college.trim();
-    }
+	public void setsId(Integer sId) {
+		this.sId = sId;
+	}
 
-    public String getMajor() {
-        return major;
-    }
+	public String getsName() {
+		return sName;
+	}
 
-    public void setMajor(String major) {
-        this.major = major == null ? null : major.trim();
-    }
+	public void setsName(String sName) {
+		this.sName = sName == null ? null : sName.trim();
+	}
+
+	public String getCollege() {
+		return college;
+	}
+
+	public void setCollege(String college) {
+		this.college = college == null ? null : college.trim();
+	}
+
+	public String getMajor() {
+		return major;
+	}
+
+	public void setMajor(String major) {
+		this.major = major == null ? null : major.trim();
+	}
 }

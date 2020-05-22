@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.Menu;
@@ -26,7 +26,7 @@ public class MenuController {
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Menu selectByPrimaryKey(@RequestParam Integer mId) {
+	public @ResponseBody Menu selectByPrimaryKey(@RequestBody Integer mId) {
 		return this.menuService.selectByPrimaryKey(mId);
 	}
 
@@ -37,7 +37,7 @@ public class MenuController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer mId) {
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer mId) {
 		return this.menuService.deleteByPrimaryKey(mId);
 	}
 
@@ -48,7 +48,7 @@ public class MenuController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam Menu menu) {
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Menu menu) {
 		return this.menuService.updateByPrimaryKeySelective(menu);
 	}
 
@@ -59,7 +59,7 @@ public class MenuController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestParam Menu menu) {
+	public @ResponseBody Integer insertSelective(@RequestBody Menu menu) {
 		return this.menuService.insertSelective(menu);
 	}
 

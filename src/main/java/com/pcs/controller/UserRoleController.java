@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.UserRole;
@@ -26,7 +26,7 @@ public class UserRoleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody UserRole selectByPrimaryKey(@RequestParam Integer urId) {
+	public @ResponseBody UserRole selectByPrimaryKey(@RequestBody Integer urId) {
 		return this.userRoleService.selectByPrimaryKey(urId);
 	}
 
@@ -37,7 +37,7 @@ public class UserRoleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer urId) {
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer urId) {
 		return this.userRoleService.deleteByPrimaryKey(urId);
 	}
 
@@ -48,7 +48,7 @@ public class UserRoleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam UserRole userRole) {
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody UserRole userRole) {
 		return this.userRoleService.updateByPrimaryKeySelective(userRole);
 	}
 
@@ -59,7 +59,7 @@ public class UserRoleController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insertuserRole.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestParam UserRole userRole) {
+	public @ResponseBody Integer insertSelective(@RequestBody UserRole userRole) {
 		return this.userRoleService.insertSelective(userRole);
 	}
 

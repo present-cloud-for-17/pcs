@@ -5,18 +5,18 @@ import java.util.List;
 import com.pcs.pojo.School;
 
 public interface SchoolMapper {
-    int deleteByPrimaryKey(Integer sId);
+	int deleteByPrimaryKey(Integer sId);
 
-    int insert(School record);
+	int insert(School record);
 
-    int insertSelective(School record);
+	int insertSelective(School record);
 
-    School selectByPrimaryKey(Integer sId);
+	School selectByPrimaryKey(Integer sId);
 
-    int updateByPrimaryKeySelective(School record);
+	int updateByPrimaryKeySelective(School record);
 
-    int updateByPrimaryKey(School record);
-    
+	int updateByPrimaryKey(School record);
+
 	List<School> findAll();
 
 }

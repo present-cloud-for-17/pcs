@@ -1,9 +1,15 @@
 package com.pcs.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Permission {
-    private Integer pId;
+public class Permission implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -2104477971223443279L;
+
+	private Integer pId;
 
     private String pName;
 
@@ -17,7 +23,24 @@ public class Permission {
 
     private Date lastModifyDate;
 
-    public Integer getpId() {
+    public Permission() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Permission(Integer pId, String pName, String description, Integer creator, Date createTime,
+			Integer lastModifier, Date lastModifyDate) {
+		super();
+		this.pId = pId;
+		this.pName = pName;
+		this.description = description;
+		this.creator = creator;
+		this.createTime = createTime;
+		this.lastModifier = lastModifier;
+		this.lastModifyDate = lastModifyDate;
+	}
+
+	public Integer getpId() {
         return pId;
     }
 

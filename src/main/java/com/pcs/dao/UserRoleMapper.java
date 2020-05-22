@@ -17,6 +17,6 @@ public interface UserRoleMapper {
 
     int updateByPrimaryKey(UserRole record);
     
-    List<UserRole> findAll();
+	List<UserRole> findAll();
 
 }

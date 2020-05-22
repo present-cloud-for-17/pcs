@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pcs.dao.UserVerificationMapper">
+  
   <resultMap id="BaseResultMap" type="com.pcs.pojo.UserVerification">
     <id column="uv_id" jdbcType="INTEGER" property="uvId" />
     <result column="u_id" jdbcType="INTEGER" property="uId" />
     <result column="login_type" jdbcType="INTEGER" property="loginType" />
-    <result column="is_third" jdbcType="BIT" property="isThird" />
     <result column="login_token" jdbcType="VARCHAR" property="loginToken" />
     <result column="password_token" jdbcType="VARCHAR" property="passwordToken" />
     <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
-    uv_id, u_id, login_type, is_third, login_token, password_token, status
+    uv_id, u_id, login_type, login_token, password_token, status
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -25,7 +25,7 @@
   </delete>
   <insert id="insert" parameterType="com.pcs.pojo.UserVerification">
     insert into user_verification (uv_id, u_id, login_type, 
-      is_third, login_token, password_token, 
+       login_token, password_token, 
       status)
     values (#{uvId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{loginType,jdbcType=INTEGER}, 
       #{isThird,jdbcType=BIT}, #{loginToken,jdbcType=VARCHAR}, #{passwordToken,jdbcType=VARCHAR}, 
@@ -43,9 +43,7 @@
       <if test="loginType != null">
         login_type,
       </if>
-      <if test="isThird != null">
-        is_third,
-      </if>
+     
       <if test="loginToken != null">
         login_token,
       </if>
@@ -65,9 +63,6 @@
       </if>
       <if test="loginType != null">
         #{loginType,jdbcType=INTEGER},
-      </if>
-      <if test="isThird != null">
-        #{isThird,jdbcType=BIT},
       </if>
       <if test="loginToken != null">
         #{loginToken,jdbcType=VARCHAR},
@@ -89,9 +84,6 @@
       <if test="loginType != null">
         login_type = #{loginType,jdbcType=INTEGER},
       </if>
-      <if test="isThird != null">
-        is_third = #{isThird,jdbcType=BIT},
-      </if>
       <if test="loginToken != null">
         login_token = #{loginToken,jdbcType=VARCHAR},
       </if>
@@ -108,7 +100,6 @@
     update user_verification
     set u_id = #{uId,jdbcType=INTEGER},
       login_type = #{loginType,jdbcType=INTEGER},
-      is_third = #{isThird,jdbcType=BIT},
       login_token = #{loginToken,jdbcType=VARCHAR},
       password_token = #{passwordToken,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER}
@@ -117,7 +108,7 @@
 	<select id="findAll" resultType="com.pcs.pojo.UserVerification">
         SELECT * FROM user_verification ORDER BY uv_id DESC
    </select>
-   <select id="login" parameterType="map" resultType="com.pcs.pojo.UserVerification">
+   <select id="login" parameterType="com.pcs.pojo.UserVerification" resultType="com.pcs.pojo.UserVerification">
 		SELECT * FROM user_verification WHERE login_type =
 		#{loginType,jdbcType=INTEGER} AND login_token =
 		#{loginToken,jdbcType=VARCHAR} AND password_token =

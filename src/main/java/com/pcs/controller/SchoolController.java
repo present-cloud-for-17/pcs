@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.School;
@@ -26,7 +26,7 @@ public class SchoolController {
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody School selectByPrimaryKey(@RequestParam Integer sId) {
+	public @ResponseBody School selectByPrimaryKey(@RequestBody Integer sId) {
 		return this.schoolService.selectByPrimaryKey(sId);
 	}
 
@@ -37,7 +37,7 @@ public class SchoolController {
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestParam Integer sId) {
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer sId) {
 		return this.schoolService.deleteByPrimaryKey(sId);
 	}
 
@@ -48,7 +48,7 @@ public class SchoolController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestParam School school) {
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody School school) {
 		return this.schoolService.updateByPrimaryKeySelective(school);
 	}
 
@@ -59,7 +59,7 @@ public class SchoolController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestParam School school) {
+	public @ResponseBody Integer insertSelective(@RequestBody School school) {
 		return this.schoolService.insertSelective(school);
 	}
 
