@@ -11,7 +11,6 @@
 			是否去除自动生成的注释,true：是,false:否
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
-
 		数据库连接的信息：驱动类、连接地址、用户名、密码
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://localhost:3306/pcs" userId="root"
@@ -43,7 +42,6 @@
 			targetPackage="com.pcs.dao" targetProject="D:/engineering-training/pcs/src/main/java">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
-
 		指定数据库表 domainObjectName：生成的domain类的名字,当表名和domain类的名字有差异时一定要设置，如果不设置，直接使用表名作为domain类的名字； 
 			可以设置为somepck.domainName，那么会自动把domainName类再放到somepck包里面；
 		<table tableName="button" domainObjectName="Button"
@@ -91,6 +89,18 @@
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
 		<table tableName="school" domainObjectName="School"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="person" domainObjectName="Person"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="course" domainObjectName="Course"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="sign_in" domainObjectName="SignIn"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>

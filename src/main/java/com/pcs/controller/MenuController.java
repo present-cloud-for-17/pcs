@@ -44,7 +44,7 @@ public class MenuController {
 	/**
 	 * 修改单个菜单信息
 	 * 
-	 * @param user
+	 * @param menu
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
@@ -55,7 +55,7 @@ public class MenuController {
 	/**
 	 * 添加单个菜单信息
 	 * 
-	 * @param user
+	 * @param menu
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })

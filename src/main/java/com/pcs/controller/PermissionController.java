@@ -44,7 +44,7 @@ public class PermissionController {
 	/**
 	 * 修改单个权限信息
 	 * 
-	 * @param user
+	 * @param permission
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
@@ -55,7 +55,7 @@ public class PermissionController {
 	/**
 	 * 添加单个权限信息
 	 * 
-	 * @param user
+	 * @param permission
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })

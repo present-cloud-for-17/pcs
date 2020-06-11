@@ -44,7 +44,7 @@ public class ButtonController {
 	/**
 	 * 修改单个按钮信息
 	 * 
-	 * @param user
+	 * @param button
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
@@ -55,7 +55,7 @@ public class ButtonController {
 	/**
 	 * 添加单个按钮信息
 	 * 
-	 * @param user
+	 * @param button
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })

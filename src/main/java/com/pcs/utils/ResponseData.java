@@ -58,6 +58,6 @@ public class ResponseData {
 	}
 
 	public static ResponseData customerError() {
-		return new ResponseData(1001, "user Error");
+		return new ResponseData(1001, "custome Error!!!");
 	}
 }

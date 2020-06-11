@@ -44,7 +44,7 @@ public class UserRoleController {
 	/**
 	 * 修改单个用户角色信息
 	 * 
-	 * @param user
+	 * @param userRole
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
@@ -55,7 +55,7 @@ public class UserRoleController {
 	/**
 	 * 添加单个用户角色信息
 	 * 
-	 * @param user
+	 * @param userRole
 	 * @return
 	 */
 	@RequestMapping(value = "/insertuserRole.do", method = { RequestMethod.POST })

@@ -44,7 +44,7 @@ public class RolePermissionController {
 	/**
 	 * 修改单个角色权限信息
 	 * 
-	 * @param user
+	 * @param rolePermission
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
@@ -55,7 +55,7 @@ public class RolePermissionController {
 	/**
 	 * 添加单个角色权限信息
 	 * 
-	 * @param user
+	 * @param rolePermission
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })

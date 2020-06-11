@@ -19,11 +19,11 @@ public class JWTUtil {
 	/**
 	 * token加密时使用的密钥 一旦得到该密钥也就可以伪造token了
 	 */
-	public static String sercetKey = "InMySchoolOnline";
+	public static String sercetKey = "sercetKey";
 	/**
 	 * 代表token的有效时间
 	 */
-	public final static long keeptime = 1800000;
+	public final static long keeptime = 6400000;
 
 	/**
 	 * JWT由3个部分组成,分别是 头部Header,载荷Payload一般是用户信息和声明,签证Signature一般是密钥和签名

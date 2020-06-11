@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,7 +47,7 @@ public class UserVerificationController {
 	/**
 	 * 修改单个用户权限信息
 	 * 
-	 * @param user
+	 * @param userVerification
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
@@ -59,7 +58,7 @@ public class UserVerificationController {
 	/**
 	 * 添加单个用户权限信息
 	 * 
-	 * @param user
+	 * @param userVerification
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
@@ -70,20 +69,21 @@ public class UserVerificationController {
 	/**
 	 * 查找全部用户权限信息
 	 */
-	@CrossOrigin(origins = "/*", maxAge = 3600)
+	// @CrossOrigin(origins = "/*", maxAge = 3600)
 	@RequestMapping(value = "/findAll.do", method = { RequestMethod.GET })
 	public @ResponseBody List<UserVerification> findAll() {
 		return this.userVerificationService.findAll();
 	}
 
 	/**
-	 * token登录
+	 * 登录
 	 */
-	@CrossOrigin(origins = "/*", maxAge = 3600)
+	// @CrossOrigin(origins = "/*", maxAge = 3600)
 	@RequestMapping(value = "/login.do", method = { RequestMethod.POST })
 	public @ResponseBody ResponseData login(@RequestBody UserVerification userVerification) {
 		userVerification.setPasswordToken(MD5Encryption.createPassword(userVerification.getPasswordToken()));
 		userVerification = this.userVerificationService.login(userVerification);
+
 		ResponseData responseData = ResponseData.ok();
 		if (userVerification != null) {
 			// 生成token
@@ -91,7 +91,7 @@ public class UserVerificationController {
 			// 向浏览器返回token，客户端受到此token后存入cookie中，或者h5的本地存储中
 			responseData.putDataValue("token", token);
 			// 以及用户
-			responseData.putDataValue("user", userVerification);
+			responseData.putDataValue("userVerification", userVerification);
 		} else {
 			// 用户或者密码错误
 			responseData = ResponseData.customerError();

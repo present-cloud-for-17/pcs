@@ -7,9 +7,10 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * 主要解决请求跨域问题
+ * 解决请求跨域问题
  */
 public class HttpInterceptor implements HandlerInterceptor {
+
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -18,6 +19,11 @@ public class HttpInterceptor implements HandlerInterceptor {
 		// 允许自定义请求头token(允许head跨域)
 		response.setHeader("Access-Control-Allow-Headers",
 				"token, Accept, Origin, X-Requested-With, Content-Type, Last-Modified");
+		String method = request.getMethod();
+		if (method.equals("OPTIONS")) {
+			response.setStatus(200);
+			return false;
+		}
 		return true;
 	}
 
@@ -30,4 +36,5 @@ public class HttpInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 	}
+
 }

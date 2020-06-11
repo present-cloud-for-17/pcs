@@ -19,12 +19,14 @@ public class HeaderTokenInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
 			Object handler) throws Exception {
+		LOG.debug("===========HeadTokenInterceptor============");
 		ResponseData responseData = null;
 		// 获取我们请求头中的token验证字符
 		String headerToken = httpServletRequest.getHeader("token");
-		// 检测当前页面,我们设置当页面不是登录页面时对其进行拦截
-		// 具体方法就是检测URL中有没有login字符串
-		if (!httpServletRequest.getRequestURI().contains("login")) {
+		// 检测当前页面不是登录,注册页面时对其进行拦截
+		// 具体方法就是检测URL中有没有login,regist字符串
+		if (!httpServletRequest.getRequestURI().contains("login")
+				&& !httpServletRequest.getRequestURI().contains("regist")) {
 			if (headerToken == null) {
 				// 如果token不存在的话,返回错误信息。
 				responseData = ResponseData.customerError();
@@ -39,10 +41,10 @@ public class HeaderTokenInterceptor implements HandlerInterceptor {
 				responseData = ResponseData.customerError();
 			}
 		}
-		if (responseData != null) {// 如果有错误信息
+		if (responseData != null) {// 如果responseData不为空,则有错误信息
 			httpServletResponse.getWriter().write(JSON.toJSONString(responseData));
 			return false;
-		} else {
+		} else { // 登录的时候，响应头加入token
 			// 将token加入返回页面的header
 			httpServletResponse.setHeader("token", headerToken);
 			return true;

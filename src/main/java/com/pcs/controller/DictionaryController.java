@@ -44,23 +44,23 @@ public class DictionaryController {
 	/**
 	 * 修改单个字典信息
 	 * 
-	 * @param user
+	 * @param dictionary
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Dictionary Dictionary) {
-		return this.dictionaryService.updateByPrimaryKeySelective(Dictionary);
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Dictionary dictionary) {
+		return this.dictionaryService.updateByPrimaryKeySelective(dictionary);
 	}
 
 	/**
 	 * 添加单个字典信息
 	 * 
-	 * @param user
+	 * @param dictionary
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestBody Dictionary Dictionary) {
-		return this.dictionaryService.insertSelective(Dictionary);
+	public @ResponseBody Integer insertSelective(@RequestBody Dictionary dictionary) {
+		return this.dictionaryService.insertSelective(dictionary);
 	}
 
 	/**
