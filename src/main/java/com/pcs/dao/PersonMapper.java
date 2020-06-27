@@ -13,6 +13,8 @@ public interface PersonMapper {
 
 	Person selectByPrimaryKey(Integer peId);
 
+	Person selectByuId(Integer uId);
+
 	int updateByPrimaryKeySelective(Person record);
 
 	int updateByPrimaryKey(Person record);

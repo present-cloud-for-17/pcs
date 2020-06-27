@@ -22,23 +22,23 @@ public class DictionaryDetailController {
 	/**
 	 * 获取单个字典详情信息
 	 * 
-	 * @param ddId
+	 * @param dictionaryDetail
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody DictionaryDetail selectByPrimaryKey(@RequestBody Integer ddId) {
-		return this.dictionaryDetailService.selectByPrimaryKey(ddId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody DictionaryDetail selectByPrimaryKey(DictionaryDetail dictionaryDetail) {
+		return this.dictionaryDetailService.selectByPrimaryKey(dictionaryDetail.getDdId());
 	}
 
 	/**
 	 * 删除单个字典详情信息
 	 * 
-	 * @param ddId
+	 * @param dictionaryDetail
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer ddId) {
-		return this.dictionaryDetailService.deleteByPrimaryKey(ddId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody DictionaryDetail dictionaryDetail) {
+		return this.dictionaryDetailService.deleteByPrimaryKey(dictionaryDetail.getDdId());
 	}
 
 	/**

@@ -22,23 +22,23 @@ public class CourseController {
 	/**
 	 * 获取单个课程信息
 	 * 
-	 * @param cId
+	 * @param course
 	 * @return
 	 */
 	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Course selectByPrimaryKey(@RequestBody Integer cId) {
-		return this.courseService.selectByPrimaryKey(cId);
+	public @ResponseBody Course selectByPrimaryKey(@RequestBody Course course) {
+		return this.courseService.selectByPrimaryKey(course.getcId());
 	}
 
 	/**
 	 * 删除单个课程信息
 	 * 
-	 * @param cId
+	 * @param course
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer cId) {
-		return this.courseService.deleteByPrimaryKey(cId);
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Course course) {
+		return this.courseService.deleteByPrimaryKey(course.getcId());
 	}
 
 	/**

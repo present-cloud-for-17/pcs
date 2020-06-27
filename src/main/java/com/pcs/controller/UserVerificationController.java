@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pcs.pojo.Person;
+import com.pcs.pojo.User;
 import com.pcs.pojo.UserVerification;
+import com.pcs.service.IPersonService;
+import com.pcs.service.IUserService;
 import com.pcs.service.IUserVerificationService;
 import com.pcs.utils.JWTUtil;
 import com.pcs.utils.MD5Encryption;
@@ -21,27 +25,31 @@ import com.pcs.utils.ResponseData;
 public class UserVerificationController {
 	@Resource
 	private IUserVerificationService userVerificationService;
+	@Resource
+	private IUserService userService;
+	@Resource
+	private IPersonService personService;
 
 	/**
 	 * 获取单个用户权限信息
 	 * 
-	 * @param uvId
+	 * @param userVerification
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody UserVerification selectByPrimaryKey(@RequestBody Integer uvId) {
-		return this.userVerificationService.selectByPrimaryKey(uvId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody UserVerification selectByPrimaryKey(@RequestBody UserVerification userVerification) {
+		return this.userVerificationService.selectByPrimaryKey(userVerification.getUvId());
 	}
 
 	/**
 	 * 删除单个用户权限信息
 	 * 
-	 * @param uvId
+	 * @param userVerification
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer uvId) {
-		return this.userVerificationService.deleteByPrimaryKey(uvId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody UserVerification userVerification) {
+		return this.userVerificationService.deleteByPrimaryKey(userVerification.getUvId());
 	}
 
 	/**
@@ -90,7 +98,15 @@ public class UserVerificationController {
 			String token = JWTUtil.generToken("1", "Jersey-Security-Basic", userVerification.getLoginToken());
 			// 向浏览器返回token，客户端受到此token后存入cookie中，或者h5的本地存储中
 			responseData.putDataValue("token", token);
-			// 以及用户
+			// 以及用户信息
+			User user = this.userService.selectByPrimaryKey(userVerification.getuId());
+			responseData.putDataValue("user", user);
+
+			// 师生信息
+			Person person = this.personService.selectByuId(userVerification.getuId());
+			responseData.putDataValue("person", person);
+
+			// 以及用户账号密码信息
 			responseData.putDataValue("userVerification", userVerification);
 		} else {
 			// 用户或者密码错误

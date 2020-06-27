@@ -62,4 +62,10 @@ public class PersonServiceImpl implements IPersonService {
 		return this.personDao.findAll();
 	}
 
+	@Override
+	public Person selectByuId(Integer uId) {
+		// TODO Auto-generated method stub
+		return this.personDao.selectByuId(uId);
+	}
+
 }

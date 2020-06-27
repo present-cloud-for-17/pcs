@@ -22,23 +22,23 @@ public class RolePermissionController {
 	/**
 	 * 获取单个角色权限信息
 	 * 
-	 * @param rpId
+	 * @param rolePermission
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody RolePermission selectByPrimaryKey(@RequestBody Integer rpId) {
-		return this.rolePermissionService.selectByPrimaryKey(rpId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody RolePermission selectByPrimaryKey(@RequestBody RolePermission rolePermission) {
+		return this.rolePermissionService.selectByPrimaryKey(rolePermission.getrId());
 	}
 
 	/**
 	 * 删除单个角色权限信息
 	 * 
-	 * @param rpId
+	 * @param rolePermission
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer rpId) {
-		return this.rolePermissionService.deleteByPrimaryKey(rpId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody RolePermission rolePermission) {
+		return this.rolePermissionService.deleteByPrimaryKey(rolePermission.getRpId());
 	}
 
 	/**

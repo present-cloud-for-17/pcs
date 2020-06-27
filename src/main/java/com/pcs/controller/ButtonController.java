@@ -22,23 +22,23 @@ public class ButtonController {
 	/**
 	 * 获取单个按钮信息
 	 * 
-	 * @param bId
+	 * @param button
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Button selectByPrimaryKey(@RequestBody Integer bId) {
-		return this.buttonService.selectByPrimaryKey(bId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Button selectByPrimaryKey(@RequestBody Button button) {
+		return this.buttonService.selectByPrimaryKey(button.getbId());
 	}
 
 	/**
 	 * 删除单个按钮信息
 	 * 
-	 * @param bId
+	 * @param button
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer bId) {
-		return this.buttonService.deleteByPrimaryKey(bId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Button button) {
+		return this.buttonService.deleteByPrimaryKey(button.getbId());
 	}
 
 	/**
@@ -48,8 +48,8 @@ public class ButtonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Button Button) {
-		return this.buttonService.updateByPrimaryKeySelective(Button);
+	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Button button) {
+		return this.buttonService.updateByPrimaryKeySelective(button);
 	}
 
 	/**

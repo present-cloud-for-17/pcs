@@ -15,10 +15,10 @@
 		max-age="3600" allowed-methods="GET,POST,OPTIONS" /> </mvc:cors> -->
 	<mvc:interceptors>
 		<!-- 允许跨域 -->
-		<mvc:interceptor>
+		<!-- <mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<bean class="com.pcs.utils.HttpInterceptor"></bean>
-		</mvc:interceptor>
+		</mvc:interceptor> -->
 		<!-- 检验Token -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />

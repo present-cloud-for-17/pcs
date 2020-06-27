@@ -22,23 +22,23 @@ public class SchoolController {
 	/**
 	 * 获取单个学校信息
 	 * 
-	 * @param sId
+	 * @param school
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody School selectByPrimaryKey(@RequestBody Integer sId) {
-		return this.schoolService.selectByPrimaryKey(sId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody School selectByPrimaryKey(@RequestBody School school) {
+		return this.schoolService.selectByPrimaryKey(school.getsId());
 	}
 
 	/**
 	 * 删除单个学校信息
 	 * 
-	 * @param sId
+	 * @param school
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer sId) {
-		return this.schoolService.deleteByPrimaryKey(sId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody School school) {
+		return this.schoolService.deleteByPrimaryKey(school.getsId());
 	}
 
 	/**

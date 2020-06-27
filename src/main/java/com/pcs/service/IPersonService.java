@@ -11,6 +11,8 @@ public interface IPersonService {
 
 	int insertSelective(Person record);
 
+	Person selectByuId(Integer uId);
+
 	Person selectByPrimaryKey(Integer peId);
 
 	int updateByPrimaryKeySelective(Person record);

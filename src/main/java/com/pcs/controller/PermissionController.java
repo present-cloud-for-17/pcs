@@ -22,23 +22,23 @@ public class PermissionController {
 	/**
 	 * 获取单个权限信息
 	 * 
-	 * @param pId
+	 * @param permission
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Permission selectByPrimaryKey(@RequestBody Integer pId) {
-		return this.permissionService.selectByPrimaryKey(pId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Permission selectByPrimaryKey(@RequestBody Permission permission) {
+		return this.permissionService.selectByPrimaryKey(permission.getpId());
 	}
 
 	/**
 	 * 删除单个权限信息
 	 * 
-	 * @param pId
+	 * @param permission
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer pId) {
-		return this.permissionService.deleteByPrimaryKey(pId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Permission permission) {
+		return this.permissionService.deleteByPrimaryKey(permission.getpId());
 	}
 
 	/**

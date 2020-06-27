@@ -22,23 +22,23 @@ public class UserRoleController {
 	/**
 	 * 获取单个用户角色信息
 	 * 
-	 * @param urId
+	 * @param userRole
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody UserRole selectByPrimaryKey(@RequestBody Integer urId) {
-		return this.userRoleService.selectByPrimaryKey(urId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody UserRole selectByPrimaryKey(@RequestBody UserRole userRole) {
+		return this.userRoleService.selectByPrimaryKey(userRole.getUrId());
 	}
 
 	/**
 	 * 删除单个用户角色信息
 	 * 
-	 * @param urId
+	 * @param userRole
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer urId) {
-		return this.userRoleService.deleteByPrimaryKey(urId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody UserRole userRole) {
+		return this.userRoleService.deleteByPrimaryKey(userRole.getUrId());
 	}
 
 	/**

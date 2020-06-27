@@ -14,7 +14,8 @@
 		<result column="is_teacher" jdbcType="INTEGER" property="isTeacher" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		pe_id, u_id, s_id, pe_number, pe_name, gender, grade, major, classes,
+		pe_id, u_id, s_id, pe_number, pe_name, gender, grade,
+		major, classes,
 		is_teacher
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
@@ -24,18 +25,28 @@
 		from person
 		where pe_id = #{peId,jdbcType=INTEGER}
 	</select>
+	<select id="selectByuId" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from person
+		where u_id = #{uId,jdbcType=INTEGER}
+	</select>
+
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from person
 		where pe_id = #{peId,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.pcs.pojo.Person">
-		insert into person (pe_id, u_id, s_id,
+		insert into person (pe_id,
+		u_id, s_id,
 		pe_number, pe_name, gender,
 		grade, major, classes,
 		is_teacher)
 		values (#{peId,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER},
 		#{sId,jdbcType=INTEGER},
-		#{peNumber,jdbcType=VARCHAR}, #{peName,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER},
+		#{peNumber,jdbcType=VARCHAR},
+		#{peName,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER},
 		#{grade,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR},
 		#{classes,jdbcType=INTEGER},
 		#{isTeacher,jdbcType=INTEGER})
@@ -142,18 +153,23 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.pcs.pojo.Person">
 		update person
-		set u_id = #{uId,jdbcType=INTEGER},
+		set
+		u_id = #{uId,jdbcType=INTEGER},
 		s_id = #{sId,jdbcType=INTEGER},
 		pe_number = #{peNumber,jdbcType=VARCHAR},
-		pe_name = #{peName,jdbcType=VARCHAR},
+		pe_name =
+		#{peName,jdbcType=VARCHAR},
 		gender = #{gender,jdbcType=INTEGER},
-		grade = #{grade,jdbcType=VARCHAR},
+		grade =
+		#{grade,jdbcType=VARCHAR},
 		major = #{major,jdbcType=VARCHAR},
-		classes = #{classes,jdbcType=INTEGER},
+		classes =
+		#{classes,jdbcType=INTEGER},
 		is_teacher = #{isTeacher,jdbcType=INTEGER}
 		where pe_id = #{peId,jdbcType=INTEGER}
 	</update>
 	<select id="findAll" resultType="com.pcs.pojo.Person">
-		SELECT * FROM person ORDER BY pe_id DESC
+		SELECT * FROM person ORDER BY
+		pe_id DESC
 	</select>
 </mapper>

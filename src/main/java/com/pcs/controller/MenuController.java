@@ -22,23 +22,23 @@ public class MenuController {
 	/**
 	 * 获取单个菜单信息
 	 * 
-	 * @param mId
+	 * @param menu
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Menu selectByPrimaryKey(@RequestBody Integer mId) {
-		return this.menuService.selectByPrimaryKey(mId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Menu selectByPrimaryKey(@RequestBody Menu menu) {
+		return this.menuService.selectByPrimaryKey(menu.getmId());
 	}
 
 	/**
 	 * 删除单个菜单信息
 	 * 
-	 * @param mId
+	 * @param menu
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer mId) {
-		return this.menuService.deleteByPrimaryKey(mId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Menu menu) {
+		return this.menuService.deleteByPrimaryKey(menu.getmId());
 	}
 
 	/**

@@ -22,23 +22,23 @@ public class SignInController {
 	/**
 	 * 获取单个签到信息
 	 * 
-	 * @param siId
+	 * @param signIn
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody SignIn selectByPrimaryKey(@RequestBody Integer siId) {
-		return this.signInService.selectByPrimaryKey(siId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody SignIn selectByPrimaryKey(@RequestBody SignIn signIn) {
+		return this.signInService.selectByPrimaryKey(signIn.getSiId());
 	}
 
 	/**
 	 * 删除单个签到信息
 	 * 
-	 * @param siId
+	 * @param signIn
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer siId) {
-		return this.signInService.deleteByPrimaryKey(siId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody SignIn signIn) {
+		return this.signInService.deleteByPrimaryKey(signIn.getSiId());
 	}
 
 	/**

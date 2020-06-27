@@ -27,23 +27,23 @@ public class UserController {
 	/**
 	 * 获取单个用戶信息
 	 * 
-	 * @param uId
+	 * @param user
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody User selectByPrimaryKey(@RequestBody Integer uId) {
-		return this.userService.selectByPrimaryKey(uId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody User selectByPrimaryKey(@RequestBody User user) {
+		return this.userService.selectByPrimaryKey(user.getuId());
 	}
 
 	/**
 	 * 删除单个用戶信息
 	 * 
-	 * @param uId
+	 * @param user
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer uId) {
-		return this.userService.deleteByPrimaryKey(uId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody User user) {
+		return this.userService.deleteByPrimaryKey(user.getuId());
 	}
 
 	/**

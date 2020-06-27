@@ -22,23 +22,23 @@ public class MenuButtonController {
 	/**
 	 * 获取单个菜单按钮信息
 	 * 
-	 * @param mbId
+	 * @param menuButton
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody MenuButton selectByPrimaryKey(@RequestBody Integer mbId) {
-		return this.menuButtonService.selectByPrimaryKey(mbId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody MenuButton selectByPrimaryKey(@RequestBody MenuButton menuButton) {
+		return this.menuButtonService.selectByPrimaryKey(menuButton.getMbId());
 	}
 
 	/**
 	 * 删除单个菜单按钮信息
 	 * 
-	 * @param mbId
+	 * @param menuButton
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer mbId) {
-		return this.menuButtonService.deleteByPrimaryKey(mbId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody MenuButton menuButton) {
+		return this.menuButtonService.deleteByPrimaryKey(menuButton.getMbId());
 	}
 
 	/**

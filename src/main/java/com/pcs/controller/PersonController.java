@@ -22,23 +22,23 @@ public class PersonController {
 	/**
 	 * 获取单个师生信息
 	 * 
-	 * @param peId
+	 * @param person
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Person selectByPrimaryKey(@RequestBody Integer peId) {
-		return this.personService.selectByPrimaryKey(peId);
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Person selectByPrimaryKey(@RequestBody Person person) {
+		return this.personService.selectByPrimaryKey(person.getPeId());
 	}
 
 	/**
 	 * 删除单个师生信息
 	 * 
-	 * @param peId
+	 * @param person
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
-	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Integer peId) {
-		return this.personService.deleteByPrimaryKey(peId);
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Person person) {
+		return this.personService.deleteByPrimaryKey(person.getPeId());
 	}
 
 	/**

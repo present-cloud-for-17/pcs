@@ -2,7 +2,6 @@
     <!DOCTYPE generatorConfiguration    
      PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"    
      "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
-
 <generatorConfiguration>
 	mysql 连接数据库jar 这里选择自己本地位置; 如果不知道maven本地仓库地址，可以使用EveryThing工具全局搜索mysql-connector-java，找到jar包位置； 
 		也可以手动下载一个jar放在指定位置，进行引用。
@@ -99,10 +98,14 @@
 		<table tableName="course" domainObjectName="Course"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false"></table>
+			selectByExampleQueryId="false"></table> 
 		<table tableName="sign_in" domainObjectName="SignIn"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
+		<table tableName="person_course" domainObjectName="PersonCourse"
+		enableCountByExample="false" enableUpdateByExample="false"
+		enableDeleteByExample="false" enableSelectByExample="false"
+		selectByExampleQueryId="false"></table>
 	</context>
 </generatorConfiguration> -->
