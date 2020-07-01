@@ -62,4 +62,10 @@ public class RoleServiceImpl implements IRoleService {
 		return this.roleDao.findAll();
 	}
 
+	@Override
+	public List<Role> selectRolePermission() {
+		// TODO Auto-generated method stub
+		return this.roleDao.selectRolePermission();
+	}
+
 }

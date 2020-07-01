@@ -59,8 +59,15 @@ public class PersonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestBody Person person) {
-		return this.personService.insertSelective(person);
+	public @ResponseBody Person insertSelective(@RequestBody Person person) {
+		Integer res = this.personService.insertSelective(person);
+		if (res == 1) {
+			Person person1 =  this.personService.selectByuId(person.getuId());
+			return  person1;
+		}else {
+			return null;
+		}
+		
 	}
 
 	/**

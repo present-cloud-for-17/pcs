@@ -68,4 +68,16 @@ public class UserVerificationServiceImpl implements IUserVerificationService {
 		return this.userVerificationDao.findAll();
 	}
 
+	@Override
+	public int updateByuId(UserVerification record) {
+		// TODO Auto-generated method stub
+		return this.userVerificationDao.updateByuId(record);
+	}
+
+	@Override
+	public Integer deleteByuId(Integer uId) {
+		// TODO Auto-generated method stub
+		return this.userVerificationDao.deleteByuId(uId);
+	}
+
 }

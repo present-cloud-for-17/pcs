@@ -37,6 +37,11 @@
 		delete from person
 		where pe_id = #{peId,jdbcType=INTEGER}
 	</delete>
+	<delete id="deleteByuId" parameterType="java.lang.Integer">
+		delete from person
+		where
+		u_id = #{uId,jdbcType=INTEGER}
+	</delete>
 	<insert id="insert" parameterType="com.pcs.pojo.Person">
 		insert into person (pe_id,
 		u_id, s_id,

@@ -25,7 +25,7 @@ public class CourseController {
 	 * @param course
 	 * @return
 	 */
-	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.GET })
+	@RequestMapping(value = "/selectByPrimaryKey.do", method = { RequestMethod.POST })
 	public @ResponseBody Course selectByPrimaryKey(@RequestBody Course course) {
 		return this.courseService.selectByPrimaryKey(course.getcId());
 	}
@@ -36,7 +36,7 @@ public class CourseController {
 	 * @param course
 	 * @return
 	 */
-	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.GET })
+	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
 	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Course course) {
 		return this.courseService.deleteByPrimaryKey(course.getcId());
 	}

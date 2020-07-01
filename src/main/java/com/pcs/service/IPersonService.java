@@ -21,4 +21,6 @@ public interface IPersonService {
 
 	List<Person> findAll();
 
+	Integer deleteByuId(Integer uId);
+
 }

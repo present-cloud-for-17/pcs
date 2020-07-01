@@ -68,4 +68,10 @@ public class PersonServiceImpl implements IPersonService {
 		return this.personDao.selectByuId(uId);
 	}
 
+	@Override
+	public Integer deleteByuId(Integer uId) {
+		// TODO Auto-generated method stub
+		return this.personDao.deleteByuId(uId);
+	}
+
 }

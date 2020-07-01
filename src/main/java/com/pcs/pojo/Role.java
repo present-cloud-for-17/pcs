@@ -23,6 +23,8 @@ public class Role implements Serializable {
 
 	private Date lastModifyDate;
 
+	private String pName;
+
 	public Role() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -95,4 +97,13 @@ public class Role implements Serializable {
 	public void setLastModifyDate(Date lastModifyDate) {
 		this.lastModifyDate = lastModifyDate;
 	}
+
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
 }

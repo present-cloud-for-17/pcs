@@ -15,10 +15,14 @@ public interface UserVerificationMapper {
 
 	int updateByPrimaryKeySelective(UserVerification record);
 
+	int updateByuId(UserVerification record);
+
 	int updateByPrimaryKey(UserVerification record);
 
 	List<UserVerification> findAll();
 
 	UserVerification login(UserVerification record);
+
+	Integer deleteByuId(Integer uId);
 
 }

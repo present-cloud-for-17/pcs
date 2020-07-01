@@ -5,18 +5,21 @@ import java.util.List;
 import com.pcs.pojo.User;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer uId);
+	int deleteByPrimaryKey(Integer uId);
 
-    int insert(User record);
+	int insert(User record);
 
-    int insertSelective(User record);
+	int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer uId);
+	User selectByPrimaryKey(Integer uId);
 
-    int updateByPrimaryKeySelective(User record);
+	User selectByuNumber(String uNumber);
 
-    int updateByPrimaryKey(User record);
-    
+	int updateByPrimaryKeySelective(User record);
+
+	int updateByPrimaryKey(User record);
+
 	List<User> findAll();
+
 
 }

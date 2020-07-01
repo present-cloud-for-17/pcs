@@ -15,10 +15,14 @@ public interface IUserVerificationService {
 
 	int updateByPrimaryKeySelective(UserVerification record);
 
+	int updateByuId(UserVerification record);
+
 	int updateByPrimaryKey(UserVerification record);
 
 	UserVerification login(UserVerification record);
-	
-    List<UserVerification> findAll();
+
+	List<UserVerification> findAll();
+
+	Integer deleteByuId(Integer uId);
 
 }

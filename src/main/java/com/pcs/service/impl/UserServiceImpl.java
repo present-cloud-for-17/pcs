@@ -62,6 +62,10 @@ public class UserServiceImpl implements IUserService {
 		return this.userDao.findAll();
 	}
 
-	
+	@Override
+	public User selectByuNumber(String uNumber) {
+		// TODO Auto-generated method stub
+		return this.userDao.selectByuNumber(uNumber);
+	}
 
 }

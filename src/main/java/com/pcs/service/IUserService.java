@@ -13,10 +13,12 @@ public interface IUserService {
 
 	User selectByPrimaryKey(Integer uId);
 
+	User selectByuNumber(String uNumber);
+
 	int updateByPrimaryKeySelective(User record);
 
 	int updateByPrimaryKey(User record);
-	
-    List<User> findAll();
+
+	List<User> findAll();
 
 }

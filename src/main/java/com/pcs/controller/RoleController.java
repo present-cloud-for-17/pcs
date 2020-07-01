@@ -70,4 +70,12 @@ public class RoleController {
 	public @ResponseBody List<Role> findAll() {
 		return this.roleService.findAll();
 	}
+
+	/**
+	 * 查找角色权限信息
+	 */
+	@RequestMapping("/selectRolePermission.do")
+	public @ResponseBody List<Role> selectRolePermission() {
+		return this.roleService.selectRolePermission();
+	}
 }
