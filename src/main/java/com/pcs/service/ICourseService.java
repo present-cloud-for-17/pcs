@@ -13,6 +13,8 @@ public interface ICourseService {
 
 	Course selectByPrimaryKey(Integer cId);
 
+	Course selectBycNumber(String cNumber);
+
 	int updateByPrimaryKeySelective(Course record);
 
 	int updateByPrimaryKey(Course record);

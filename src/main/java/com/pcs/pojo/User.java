@@ -23,6 +23,8 @@ public class User implements Serializable {
 
 	private Integer status;
 
+	private Integer peId;
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -95,4 +97,13 @@ public class User implements Serializable {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
+
+	public Integer getPeId() {
+		return peId;
+	}
+
+	public void setPeId(Integer peId) {
+		this.peId = peId;
+	}
+
 }

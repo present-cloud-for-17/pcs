@@ -25,6 +25,10 @@ public class Course implements Serializable {
 	private Double dailyWeight;
 
 	private Double finalWeight;
+	
+	private Integer peId;
+	
+	private String peName;
 
 	public Integer getcId() {
 		return cId;
@@ -129,4 +133,21 @@ public class Course implements Serializable {
 	public void setFinalWeight(Double finalWeight) {
 		this.finalWeight = finalWeight;
 	}
+
+	public Integer getPeId() {
+		return peId;
+	}
+
+	public void setPeId(Integer peId) {
+		this.peId = peId;
+	}
+
+	public String getPeName() {
+		return peName;
+	}
+
+	public void setPeName(String peName) {
+		this.peName = peName;
+	}
+	
 }

@@ -3,10 +3,11 @@ package com.pcs.pojo;
 import java.io.Serializable;
 
 public class Person implements Serializable {
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3750382365077097406L;
+	private static final long serialVersionUID = -5538474747140824612L;
 
 	private Integer peId;
 

@@ -11,13 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pcs.pojo.Course;
+import com.pcs.pojo.PersonCourse;
 import com.pcs.service.ICourseService;
+import com.pcs.service.IPersonCourseService;
 
 @Controller
 @RequestMapping("/course")
 public class CourseController {
 	@Resource
 	private ICourseService courseService;
+	@Resource
+	private IPersonCourseService personCourseService;
 
 	/**
 	 * 获取单个课程信息
@@ -38,6 +42,8 @@ public class CourseController {
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
 	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Course course) {
+		// 删除cId删除personCourse
+		this.personCourseService.deleteBycId(course.getcId());
 		return this.courseService.deleteByPrimaryKey(course.getcId());
 	}
 
@@ -59,8 +65,29 @@ public class CourseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestBody Course course) {
-		return this.courseService.insertSelective(course);
+	public @ResponseBody Course insertSelective(@RequestBody Course course) {
+
+		Integer res = this.courseService.insertSelective(course);
+		if (res > 0) {
+			Course course1 = this.courseService.selectBycNumber(course.getcNumber());
+			Integer cId = course1.getcId();
+			Integer peId = course.getPeId();
+			// 向personCourse插入一条记录
+			PersonCourse pc = new PersonCourse();
+			pc.setPeId(peId);
+			pc.setcId(cId);
+			pc.setcId(cId);
+			pc.setValue(0);
+			pc.setStatus(1);
+			Integer pc_res = this.personCourseService.insertSelective(pc);
+			if (pc_res > 0) {
+				return course1;
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
 
 	/**

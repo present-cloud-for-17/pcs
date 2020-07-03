@@ -3,8 +3,8 @@
 <mapper namespace="com.pcs.dao.DictionaryMapper">
   <resultMap id="BaseResultMap" type="com.pcs.pojo.Dictionary">
     <id column="d_id" jdbcType="INTEGER" property="dId" />
-    <result column="chinese_name" jdbcType="INTEGER" property="chineseName" />
-    <result column="english_name" jdbcType="INTEGER" property="englishName" />
+    <result column="chinese_name" jdbcType="VARCHAR" property="chineseName" />
+    <result column="english_name" jdbcType="VARCHAR" property="englishName" />
   </resultMap>
   <sql id="Base_Column_List">
     d_id, chinese_name, english_name
@@ -22,7 +22,7 @@
   <insert id="insert" parameterType="com.pcs.pojo.Dictionary">
     insert into dictionary (d_id, chinese_name, english_name
       )
-    values (#{dId,jdbcType=INTEGER}, #{chineseName,jdbcType=INTEGER}, #{englishName,jdbcType=INTEGER}
+    values (#{dId,jdbcType=INTEGER}, #{chineseName,jdbcType=VARCHAR}, #{englishName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.pcs.pojo.Dictionary">
@@ -43,10 +43,10 @@
         #{dId,jdbcType=INTEGER},
       </if>
       <if test="chineseName != null">
-        #{chineseName,jdbcType=INTEGER},
+        #{chineseName,jdbcType=VARCHAR},
       </if>
       <if test="englishName != null">
-        #{englishName,jdbcType=INTEGER},
+        #{englishName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -54,21 +54,21 @@
     update dictionary
     <set>
       <if test="chineseName != null">
-        chinese_name = #{chineseName,jdbcType=INTEGER},
+        chinese_name = #{chineseName,jdbcType=VARCHAR},
       </if>
       <if test="englishName != null">
-        english_name = #{englishName,jdbcType=INTEGER},
+        english_name = #{englishName,jdbcType=VARCHAR},
       </if>
     </set>
     where d_id = #{dId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.pcs.pojo.Dictionary">
     update dictionary
-    set chinese_name = #{chineseName,jdbcType=INTEGER},
-      english_name = #{englishName,jdbcType=INTEGER}
+    set chinese_name = #{chineseName,jdbcType=VARCHAR},
+      english_name = #{englishName,jdbcType=VARCHAR}
     where d_id = #{dId,jdbcType=INTEGER}
   </update>
-   <select id="findAll" resultType="com.pcs.pojo.Dictionary">
+  <select id="findAll" resultType="com.pcs.pojo.Dictionary">
         SELECT * FROM dictionary ORDER BY d_id DESC
    </select>
 </mapper>

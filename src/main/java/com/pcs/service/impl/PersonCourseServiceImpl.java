@@ -81,4 +81,10 @@ public class PersonCourseServiceImpl implements IPersonCourseService {
 
 	}
 
+	@Override
+	public int deleteBycId(Integer cId) {
+		// TODO Auto-generated method stub
+		return this.personCourseDao.deleteBycId(cId);
+	}
+
 }

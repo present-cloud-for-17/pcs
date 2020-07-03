@@ -28,6 +28,11 @@
 		person_course
 		where pc_id = #{pcId,jdbcType=INTEGER}
 	</delete>
+	<delete id="deleteBycId" parameterType="java.lang.Integer">
+		delete from
+		person_course
+		where c_id = #{cId,jdbcType=INTEGER}
+	</delete>
 	<insert id="insert" parameterType="com.pcs.pojo.PersonCourse">
 		insert into person_course
 		(pc_id, pe_id, c_id,
@@ -122,9 +127,12 @@
 		where pc.pe_id = #{peId,jdbcType=INTEGER}
 	</select>
 	<select id="selectPersonBycId" resultType="com.pcs.pojo.PersonCourse">
-		SELECT p.pe_number,p.pe_name,pc.value
+		SELECT
+		p.pe_number,p.pe_name,pc.value
 		FROM
-		person_course pc left outer join course c on pc.c_id = c.c_id left outer join person p on pc.pe_id = p.pe_id
-		where c.c_id = #{cId,jdbcType=INTEGER}
+		person_course pc left outer join
+		course c on pc.c_id = c.c_id left outer join person p on pc.pe_id =
+		p.pe_id
+		where c.c_id = #{cId,jdbcType=INTEGER} and p.is_teacher = 0
 	</select>
 </mapper>

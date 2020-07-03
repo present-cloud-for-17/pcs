@@ -25,4 +25,6 @@ public interface IUserVerificationService {
 
 	Integer deleteByuId(Integer uId);
 
+	Integer updatePassword(UserVerification userVerification);
+
 }

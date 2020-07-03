@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pcs.pojo.Person;
 import com.pcs.pojo.User;
 import com.pcs.pojo.UserVerification;
 import com.pcs.service.IPersonService;
@@ -65,21 +66,21 @@ public class UserController {
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
 	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody User user) {
 		// 如果修改的是账号，手机号，邮箱，则修改对应的密码表
-		if (user.getuNumber() != null) {
+		if (user.getuNumber() != null && user.getuNumber().length() >= 0) {
 			UserVerification uv = new UserVerification();
 			uv.setuId(user.getuId());
 			uv.setLoginType(1);
 			uv.setLoginToken(user.getuNumber());
 			this.userVerificationService.updateByuId(uv);
 		}
-		if (user.getPhone() != null) {
+		if (user.getPhone() != null && user.getPhone().length() >= 0) {
 			UserVerification uv = new UserVerification();
 			uv.setuId(user.getuId());
 			uv.setLoginType(2);
 			uv.setLoginToken(user.getPhone());
 			this.userVerificationService.updateByuId(uv);
 		}
-		if (user.getEmaile() != null) {
+		if (user.getEmaile() != null && user.getPhone().length() >= 0) {
 			UserVerification uv = new UserVerification();
 			uv.setuId(user.getuId());
 			uv.setLoginType(3);
@@ -96,12 +97,26 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/insert.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer insertSelective(@RequestBody User user) {
+	public @ResponseBody User insertSelective(@RequestBody User user) {
+		// 添加注册用户信息
 		Integer result = this.userService.insertSelective(user);
 		if (result == 1) {
-			// 根据注册用户的账号,手机号和邮箱注册登录表
-			// 先获取uId
+			// 获取注册的用户
 			User user1 = this.userService.selectByuNumber(user.getuNumber());
+			// 根据uId向person表插入一条记录
+			Person person = new Person();
+			person.setClasses(-1);
+			person.setGender(-1);
+			person.setGrade("unknow");
+			person.setIsTeacher(-1);
+			person.setMajor("unknow");
+			person.setPeName("unknow");
+			person.setPeNumber("unknow");
+			person.setsId(null);
+			person.setuId(user1.getuId());
+			Integer pe_res = this.personService.insertSelective(person);
+
+			// 根据注册用户的账号,手机号和邮箱注册登录表
 			// 1 - 账号登录，2-手机号登录，3-邮箱登录
 			UserVerification uv1 = new UserVerification(user1.getuId(), 1, user1.getuNumber(),
 					MD5Encryption.createPassword("123456"), 1);
@@ -112,13 +127,13 @@ public class UserController {
 			int uv1_res = this.userVerificationService.insertSelective(uv1);
 			int uv2_res = this.userVerificationService.insertSelective(uv2);
 			int uv3_res = this.userVerificationService.insertSelective(uv3);
-			if (uv1_res == 1 && uv2_res == 1 && uv3_res == 1) {
-				return 1;
+			if (uv1_res == 1 && uv2_res == 1 && uv3_res == 1 && pe_res == 1) {
+				return user1;
 			} else {
-				return 0;
+				return null;
 			}
 		} else {
-			return 0;
+			return null;
 		}
 	}
 
@@ -134,13 +149,26 @@ public class UserController {
 	 * 用户注册
 	 */
 	@RequestMapping("/register.do")
-	public @ResponseBody Integer register(@RequestBody User user) {
+	public @ResponseBody User register(@RequestBody User user) {
 		// 添加注册用户信息
 		Integer result = this.userService.insertSelective(user);
 		if (result == 1) {
-			// 根据注册用户的账号,手机号和邮箱注册登录表
-			// 先获取uId
+			// 获取注册的用户
 			User user1 = this.userService.selectByuNumber(user.getuNumber());
+			// 根据uId向person表插入一条记录
+			Person person = new Person();
+			person.setClasses(-1);
+			person.setGender(-1);
+			person.setGrade("unknow");
+			person.setIsTeacher(-1);
+			person.setMajor("unknow");
+			person.setPeName("unknow");
+			person.setPeNumber("unknow");
+			person.setsId(null);
+			person.setuId(user1.getuId());
+			Integer pe_res = this.personService.insertSelective(person);
+
+			// 根据注册用户的账号,手机号和邮箱注册登录表
 			// 1 - 账号登录，2-手机号登录，3-邮箱登录
 			UserVerification uv1 = new UserVerification(user1.getuId(), 1, user1.getuNumber(),
 					MD5Encryption.createPassword("123456"), 1);
@@ -151,13 +179,13 @@ public class UserController {
 			int uv1_res = this.userVerificationService.insertSelective(uv1);
 			int uv2_res = this.userVerificationService.insertSelective(uv2);
 			int uv3_res = this.userVerificationService.insertSelective(uv3);
-			if (uv1_res == 1 && uv2_res == 1 && uv3_res == 1) {
-				return 1;
+			if (uv1_res == 1 && uv2_res == 1 && uv3_res == 1 && pe_res == 1) {
+				return user1;
 			} else {
-				return 0;
+				return null;
 			}
 		} else {
-			return 0;
+			return null;
 		}
 	}
 

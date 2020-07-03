@@ -6,20 +6,20 @@ public class Dictionary implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5724927320385316662L;
+	private static final long serialVersionUID = -7935336443731665500L;
 
 	private Integer dId;
 
-	private Integer chineseName;
+	private String chineseName;
 
-	private Integer englishName;
+	private String englishName;
 
 	public Dictionary() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Dictionary(Integer dId, Integer chineseName, Integer englishName) {
+	public Dictionary(Integer dId, String chineseName, String englishName) {
 		super();
 		this.dId = dId;
 		this.chineseName = chineseName;
@@ -34,19 +34,19 @@ public class Dictionary implements Serializable {
 		this.dId = dId;
 	}
 
-	public Integer getChineseName() {
+	public String getChineseName() {
 		return chineseName;
 	}
 
-	public void setChineseName(Integer chineseName) {
-		this.chineseName = chineseName;
+	public void setChineseName(String chineseName) {
+		this.chineseName = chineseName == null ? null : chineseName.trim();
 	}
 
-	public Integer getEnglishName() {
+	public String getEnglishName() {
 		return englishName;
 	}
 
-	public void setEnglishName(Integer englishName) {
-		this.englishName = englishName;
+	public void setEnglishName(String englishName) {
+		this.englishName = englishName == null ? null : englishName.trim();
 	}
 }

@@ -98,14 +98,18 @@
 		<table tableName="course" domainObjectName="Course"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
-			selectByExampleQueryId="false"></table> 
+			selectByExampleQueryId="false"></table>
 		<table tableName="sign_in" domainObjectName="SignIn"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false"></table>
 		<table tableName="person_course" domainObjectName="PersonCourse"
-		enableCountByExample="false" enableUpdateByExample="false"
-		enableDeleteByExample="false" enableSelectByExample="false"
-		selectByExampleQueryId="false"></table>
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="parameter" domainObjectName="Parameter"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
 	</context>
-</generatorConfiguration> -->
+</generatorConfiguration>  -->

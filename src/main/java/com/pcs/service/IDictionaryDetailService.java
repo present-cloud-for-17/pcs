@@ -16,7 +16,9 @@ public interface IDictionaryDetailService {
 	int updateByPrimaryKeySelective(DictionaryDetail record);
 
 	int updateByPrimaryKey(DictionaryDetail record);
-	
-    List<DictionaryDetail> findAll();
+
+	List<DictionaryDetail> findAll();
+
+	List<DictionaryDetail> selectBydId(Integer dId);
 
 }

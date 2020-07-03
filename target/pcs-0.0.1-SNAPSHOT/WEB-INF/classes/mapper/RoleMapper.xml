@@ -134,13 +134,15 @@
 		DESC
 	</select>
 
-	<select id="selectRolePermission" resultType="com.pcs.pojo.PersonCourse">
+	<select id="selectRolePermission" resultType="com.pcs.pojo.Role">
 		SELECT
-		r.r_id,r.r_name,p.p_name,p.description
+		r.r_id,r_name,p_name,r.description
 		FROM
 		role_permission rp left
-		outer join role r on rp.r_id = r.r_id left
+		outer
+		join role r on rp.r_id = r.r_id left
 		outer join permission p on
-		rp.p_id = p.p_id order by r_name
+		rp.p_id
+		= p.p_id order by r_name
 	</select>
 </mapper>

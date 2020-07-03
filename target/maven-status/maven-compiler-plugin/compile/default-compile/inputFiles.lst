@@ -23,12 +23,14 @@ D:\engineering-training\pcs\src\main\java\com\pcs\dao\ButtonMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\IMenuService.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\UserMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\pojo\Person.java
+D:\engineering-training\pcs\src\main\java\com\pcs\dao\ParameterMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\UserVerificationMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\ISchoolService.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\MenuButtonMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\SignInMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\IDictionaryDetailService.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\UserServiceImpl.java
+D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\ParameterServiceImpl.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\SchoolServiceImpl.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\UserVerificationServiceImpl.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\UserRoleMapper.java
@@ -50,7 +52,9 @@ D:\engineering-training\pcs\src\main\java\com\pcs\controller\PersonCourseControl
 D:\engineering-training\pcs\src\main\java\com\pcs\controller\ButtonController.java
 D:\engineering-training\pcs\src\main\java\com\pcs\pojo\RolePermission.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\IRolePermissionService.java
+D:\engineering-training\pcs\src\main\java\com\pcs\controller\ParameterController.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\IMenuButtonService.java
+D:\engineering-training\pcs\src\main\java\com\pcs\service\IParameterService.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\DictionaryDetailServiceImpl.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\DictionaryDetailMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\controller\UserController.java
@@ -61,6 +65,7 @@ D:\engineering-training\pcs\src\main\java\com\pcs\pojo\Menu.java
 D:\engineering-training\pcs\src\main\java\com\pcs\utils\HttpInterceptor.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\RolePermissionMapper.java
 D:\engineering-training\pcs\src\main\java\com\pcs\dao\PersonCourseMapper.java
+D:\engineering-training\pcs\src\main\java\com\pcs\pojo\Parameter.java
 D:\engineering-training\pcs\src\main\java\com\pcs\controller\CourseController.java
 D:\engineering-training\pcs\src\main\java\com\pcs\controller\MenuButtonController.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\PersonCourseServiceImpl.java
@@ -83,3 +88,4 @@ D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\RolePermissionSer
 D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\PermissionServiceImpl.java
 D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\PersonServiceImpl.java
 D:\engineering-training\pcs\src\main\java\com\pcs\controller\UserRoleController.java
+D:\engineering-training\pcs\src\main\java\com\pcs\service\impl\IDictionaryService.java

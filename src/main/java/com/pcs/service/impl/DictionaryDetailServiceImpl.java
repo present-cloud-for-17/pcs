@@ -62,4 +62,10 @@ public class DictionaryDetailServiceImpl implements IDictionaryDetailService {
 		return this.dictionaryDetailDao.findAll();
 	}
 
+	@Override
+	public List<DictionaryDetail> selectBydId(Integer dId) {
+		// TODO Auto-generated method stub
+		return this.dictionaryDetailDao.selectBydId(dId);
+	}
+
 }

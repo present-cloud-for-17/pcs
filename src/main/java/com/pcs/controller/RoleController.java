@@ -1,6 +1,12 @@
 package com.pcs.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -74,8 +80,30 @@ public class RoleController {
 	/**
 	 * 查找角色权限信息
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping("/selectRolePermission.do")
-	public @ResponseBody List<Role> selectRolePermission() {
-		return this.roleService.selectRolePermission();
+	public @ResponseBody List<Map<String, Object>> selectRolePermission() {
+		List<Map<String, Object>> lm = new ArrayList<Map<String, Object>>();
+		Set hs = new HashSet();
+		List<Role> lr = this.roleService.selectRolePermission();
+		for (Role role : lr) {
+			hs.add(role.getrName()); // 获取所有角色信息
+		}
+		Iterator it = hs.iterator();
+		while (it.hasNext()) {
+			Map map = new HashMap();
+			String rName = (String) it.next();
+			map.put("rName", rName);
+			List<String> pNames = new ArrayList<>();
+			for (Role role : lr) {
+				if (rName.equals(role.getrName())) {
+					pNames.add(role.getpName());
+					map.put("description", role.getDescription());
+				}
+				map.put("pName", pNames);
+			}
+			lm.add(map);
+		}
+		return lm;
 	}
 }

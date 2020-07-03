@@ -6,37 +6,27 @@ public class DictionaryDetail implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3129372706088138127L;
+	private static final long serialVersionUID = 301294356609957009L;
 
 	private Integer ddId;
 
 	private Integer dId;
 
-	private String englishTag;
+	private String ddName;
 
-	private Integer keyValue;
-
-	private Boolean isDefault;
-
-	private String value;
-
-	private Integer sort;
+	private Integer isDefault;
 
 	public DictionaryDetail() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public DictionaryDetail(Integer ddId, Integer dId, String englishTag, Integer keyValue, Boolean isDefault,
-			String value, Integer sort) {
+	public DictionaryDetail(Integer ddId, Integer dId, String ddName, Integer isDefault) {
 		super();
 		this.ddId = ddId;
 		this.dId = dId;
-		this.englishTag = englishTag;
-		this.keyValue = keyValue;
+		this.ddName = ddName;
 		this.isDefault = isDefault;
-		this.value = value;
-		this.sort = sort;
 	}
 
 	public Integer getDdId() {
@@ -55,43 +45,19 @@ public class DictionaryDetail implements Serializable {
 		this.dId = dId;
 	}
 
-	public String getEnglishTag() {
-		return englishTag;
+	public String getDdName() {
+		return ddName;
 	}
 
-	public void setEnglishTag(String englishTag) {
-		this.englishTag = englishTag == null ? null : englishTag.trim();
+	public void setDdName(String ddName) {
+		this.ddName = ddName == null ? null : ddName.trim();
 	}
 
-	public Integer getKeyValue() {
-		return keyValue;
-	}
-
-	public void setKeyValue(Integer keyValue) {
-		this.keyValue = keyValue;
-	}
-
-	public Boolean getIsDefault() {
+	public Integer getIsDefault() {
 		return isDefault;
 	}
 
-	public void setIsDefault(Boolean isDefault) {
+	public void setIsDefault(Integer isDefault) {
 		this.isDefault = isDefault;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value == null ? null : value.trim();
-	}
-
-	public Integer getSort() {
-		return sort;
-	}
-
-	public void setSort(Integer sort) {
-		this.sort = sort;
 	}
 }

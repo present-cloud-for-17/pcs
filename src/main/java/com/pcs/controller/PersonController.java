@@ -48,8 +48,13 @@ public class PersonController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
-	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody Person person) {
-		return this.personService.updateByPrimaryKeySelective(person);
+	public @ResponseBody Person updateByPrimaryKeySelective(@RequestBody Person person) {
+		Integer res = this.personService.updateByPrimaryKeySelective(person);
+		if (res > 0) {
+			return this.personService.selectByPrimaryKey(person.getPeId());
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -62,12 +67,12 @@ public class PersonController {
 	public @ResponseBody Person insertSelective(@RequestBody Person person) {
 		Integer res = this.personService.insertSelective(person);
 		if (res == 1) {
-			Person person1 =  this.personService.selectByuId(person.getuId());
-			return  person1;
-		}else {
+			Person person1 = this.personService.selectByuId(person.getuId());
+			return person1;
+		} else {
 			return null;
 		}
-		
+
 	}
 
 	/**

@@ -86,6 +86,7 @@ public class PersonCourseController {
 	public @ResponseBody List<PersonCourse> addedCourse(@RequestBody PersonCourse personCourse) {
 		return this.personCourseService.addedCourse(personCourse);
 	}
+
 	/**
 	 * 根据班课编号显示所有成员
 	 */

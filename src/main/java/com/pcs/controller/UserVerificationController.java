@@ -120,8 +120,9 @@ public class UserVerificationController {
 	 */
 	@RequestMapping(value = "/updatePassword.do", method = { RequestMethod.POST })
 	public @ResponseBody Integer updatePassword(@RequestBody UserVerification userVerification) {
+		// 根据uId修改用户的密码
 		userVerification.setPasswordToken(MD5Encryption.createPassword(userVerification.getPasswordToken()));
-		Integer result = this.userVerificationService.updateByPrimaryKeySelective(userVerification);
+		Integer result = this.userVerificationService.updatePassword(userVerification);
 		return result;
 
 	}

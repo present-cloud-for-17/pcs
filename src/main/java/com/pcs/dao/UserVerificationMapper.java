@@ -25,4 +25,6 @@ public interface UserVerificationMapper {
 
 	Integer deleteByuId(Integer uId);
 
+	Integer updatePassword(UserVerification userVerification);
+
 }

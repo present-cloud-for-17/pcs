@@ -7,6 +7,8 @@ import com.pcs.pojo.PersonCourse;
 public interface IPersonCourseService {
 	int deleteByPrimaryKey(Integer pcId);
 
+	int deleteBycId(Integer cId);
+
 	int insert(PersonCourse record);
 
 	int insertSelective(PersonCourse record);

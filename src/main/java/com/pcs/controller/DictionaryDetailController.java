@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pcs.pojo.Dictionary;
 import com.pcs.pojo.DictionaryDetail;
 import com.pcs.service.IDictionaryDetailService;
 
@@ -69,5 +70,13 @@ public class DictionaryDetailController {
 	@RequestMapping("/findAll.do")
 	public @ResponseBody List<DictionaryDetail> findAll() {
 		return this.dictionaryDetailService.findAll();
+	}
+
+	/**
+	 * 根据字典dId查询字典详情信息
+	 */
+	@RequestMapping(value = "/selectBydId.do", method = { RequestMethod.POST })
+	public @ResponseBody List<DictionaryDetail> selectBydId(@RequestBody Dictionary dictionary) {
+		return this.dictionaryDetailService.selectBydId(dictionary.getdId());
 	}
 }

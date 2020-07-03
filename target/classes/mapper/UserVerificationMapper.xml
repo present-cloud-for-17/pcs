@@ -110,18 +110,18 @@
 	</update>
 	<update id="updateByuId" parameterType="com.pcs.pojo.UserVerification">
 		update user_verification
+		set
+		login_type = #{loginType,jdbcType=INTEGER},
+		login_token
+		=#{loginToken,jdbcType=VARCHAR} 
+		where u_id =
+		#{uId,jdbcType=INTEGER}
+	</update>
+	<update id="updatePassword" parameterType="com.pcs.pojo.UserVerification">
+		update user_verification
 		<set>
-			<if test="loginType != null">
-				login_type = #{loginType,jdbcType=INTEGER},
-			</if>
-			<if test="loginToken != null">
-				login_token = #{loginToken,jdbcType=VARCHAR},
-			</if>
 			<if test="passwordToken != null">
 				password_token = #{passwordToken,jdbcType=VARCHAR},
-			</if>
-			<if test="status != null">
-				status = #{status,jdbcType=INTEGER},
 			</if>
 		</set>
 		where u_id = #{uId,jdbcType=INTEGER}

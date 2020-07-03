@@ -6,6 +6,8 @@ import com.pcs.pojo.PersonCourse;
 
 public interface PersonCourseMapper {
 	int deleteByPrimaryKey(Integer pcId);
+	
+	int deleteBycId(Integer cId);
 
 	int insert(PersonCourse record);
 

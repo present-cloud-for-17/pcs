@@ -62,4 +62,10 @@ public class CourseServiceImpl implements ICourseService {
 		return this.courseDao.findAll();
 	}
 
+	@Override
+	public Course selectBycNumber(String cNumber) {
+		// TODO Auto-generated method stub
+		return this.courseDao.selectBycNumber(cNumber);
+	}
+
 }

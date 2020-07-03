@@ -9,17 +9,20 @@
 		<result column="emaile" jdbcType="VARCHAR" property="emaile" />
 		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
 		<result column="status" jdbcType="INTEGER" property="status" />
+		<result column="pe_id" jdbcType="INTEGER" property="peId" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		u_id, u_number, u_name, phone, emaile, create_date, status
 	</sql>
-	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from user
 		where u_id = #{uId,jdbcType=INTEGER}
 	</select>
-	<select id="selectByuNumber" parameterType="java.lang.String" resultMap="BaseResultMap">
+	<select id="selectByuNumber" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from user
@@ -30,12 +33,15 @@
 		where u_id = #{uId,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.pcs.pojo.User">
-		insert into user (u_id, u_number, u_name,
+		insert into user (u_id,
+		u_number, u_name,
 		phone, emaile, create_date,
 		status)
-		values (#{uId,jdbcType=INTEGER}, #{uNumber,jdbcType=VARCHAR},
+		values
+		(#{uId,jdbcType=INTEGER}, #{uNumber,jdbcType=VARCHAR},
 		#{uName,jdbcType=VARCHAR},
-		#{phone,jdbcType=VARCHAR}, #{emaile,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
+		#{phone,jdbcType=VARCHAR},
+		#{emaile,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
 		#{status,jdbcType=INTEGER})
 	</insert>
 	<insert id="insertSelective" parameterType="com.pcs.pojo.User">
@@ -113,15 +119,22 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.pcs.pojo.User">
 		update user
-		set u_number = #{uNumber,jdbcType=VARCHAR},
-		u_name = #{uName,jdbcType=VARCHAR},
+		set
+		u_number = #{uNumber,jdbcType=VARCHAR},
+		u_name =
+		#{uName,jdbcType=VARCHAR},
 		phone = #{phone,jdbcType=VARCHAR},
-		emaile = #{emaile,jdbcType=VARCHAR},
-		create_date = #{createDate,jdbcType=TIMESTAMP},
+		emaile =
+		#{emaile,jdbcType=VARCHAR},
+		create_date =
+		#{createDate,jdbcType=TIMESTAMP},
 		status = #{status,jdbcType=INTEGER}
 		where u_id = #{uId,jdbcType=INTEGER}
 	</update>
 	<select id="findAll" resultType="com.pcs.pojo.User">
-		SELECT * FROM user ORDER BY u_id DESC
+		SELECT u.*,p.pe_id FROM user u
+		left outer join person p on u.u_id = p.u_id WHERE status
+		> 0 ORDER BY
+		u.u_id DESC;
 	</select>
 </mapper>

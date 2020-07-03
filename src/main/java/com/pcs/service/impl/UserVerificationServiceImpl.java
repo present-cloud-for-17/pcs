@@ -80,4 +80,10 @@ public class UserVerificationServiceImpl implements IUserVerificationService {
 		return this.userVerificationDao.deleteByuId(uId);
 	}
 
+	@Override
+	public Integer updatePassword(UserVerification userVerification) {
+		// TODO Auto-generated method stub
+		return this.userVerificationDao.updatePassword(userVerification);
+	}
+
 }
