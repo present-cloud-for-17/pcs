@@ -67,12 +67,12 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/updateByPrimaryKey.do", method = { RequestMethod.POST })
 	public @ResponseBody Integer updateByPrimaryKeySelective(@RequestBody User user) {
-		// 如果修改的是账号，手机号，邮箱，则修改对应的密码表
-		if (user.getuNumber() != null && user.getuNumber().length() >= 0) {
+		// 如果修改的是用户名，手机号，邮箱，则修改对应的密码表
+		if (user.getuName() != null && user.getuName().length() >= 0) {
 			UserVerification uv = new UserVerification();
 			uv.setuId(user.getuId());
 			uv.setLoginType(1);
-			uv.setLoginToken(user.getuNumber());
+			uv.setLoginToken(user.getuName());
 			this.userVerificationService.updateByuId(uv);
 		}
 		if (user.getPhone() != null && user.getPhone().length() >= 0) {
@@ -121,9 +121,9 @@ public class UserController {
 			person1 = this.personService.selectByuId(user1.getuId());
 			user1.setPeId(person1.getPeId());
 
-			// 根据注册用户的账号,手机号和邮箱注册登录表
-			// 1 - 账号登录，2-手机号登录，3-邮箱登录
-			UserVerification uv1 = new UserVerification(user1.getuId(), 1, user1.getuNumber(),
+			// 根据注册用户的用户名,手机号和邮箱注册登录表
+			// 1 - 用户名登录，2-手机号登录，3-邮箱登录
+			UserVerification uv1 = new UserVerification(user1.getuId(), 1, user1.getuName(),
 					MD5Encryption.createPassword("123456"), 1);
 			UserVerification uv2 = new UserVerification(user1.getuId(), 2, user1.getPhone(),
 					MD5Encryption.createPassword("123456"), 1);
@@ -179,9 +179,9 @@ public class UserController {
 			person1 = this.personService.selectByuId(user1.getuId());
 			user1.setPeId(person1.getPeId());
 
-			// 根据注册用户的账号,手机号和邮箱注册登录表
-			// 1 - 账号登录，2-手机号登录，3-邮箱登录
-			UserVerification uv1 = new UserVerification(user1.getuId(), 1, user1.getuNumber(),
+			// 根据注册用户的用户名,手机号和邮箱注册登录表
+			// 1 - 用户名登录，2-手机号登录，3-邮箱登录
+			UserVerification uv1 = new UserVerification(user1.getuId(), 1, user1.getuName(),
 					MD5Encryption.createPassword("123456"), 1);
 			UserVerification uv2 = new UserVerification(user1.getuId(), 2, user1.getPhone(),
 					MD5Encryption.createPassword("123456"), 1);
