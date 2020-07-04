@@ -44,6 +44,7 @@ public class RoleController {
 	 */
 	@RequestMapping(value = "/deleteByPrimaryKey.do", method = { RequestMethod.POST })
 	public @ResponseBody Integer deleteByPrimaryKey(@RequestBody Role role) {
+		// 软删除
 		return this.roleService.deleteByPrimaryKey(role.getrId());
 	}
 
@@ -93,14 +94,24 @@ public class RoleController {
 		while (it.hasNext()) {
 			Map map = new HashMap();
 			String rName = (String) it.next();
-			map.put("rName", rName);
-			List<String> pNames = new ArrayList<>();
 			for (Role role : lr) {
 				if (rName.equals(role.getrName())) {
-					pNames.add(role.getpName());
+					map.put("rId", role.getrId());
 					map.put("description", role.getDescription());
 				}
-				map.put("pName", pNames);
+			}
+			map.put("rName", rName);
+
+			List<Map<String, Object>> permissions = new ArrayList<>();
+			for (Role role : lr) {
+				if (rName.equals(role.getrName())) {
+					Map m1 = new HashMap();
+					m1.put("pId", role.getpId());
+					m1.put("pName", role.getpName());
+					m1.put("status", role.getStatus());
+					permissions.add(m1);
+				}
+				map.put("permissions", permissions);
 			}
 			lm.add(map);
 		}

@@ -42,6 +42,17 @@ public class RolePermissionController {
 	}
 
 	/**
+	 * 根据rId和pId修改单个角色权限信息
+	 * 
+	 * @param rolePermission
+	 * @return
+	 */
+	@RequestMapping(value = "/updateByrIdAndpId.do", method = { RequestMethod.POST })
+	public @ResponseBody Integer updateByrIdAndpId(@RequestBody RolePermission rolePermission) {
+		return this.rolePermissionService.updateByrIdAndpId(rolePermission);
+	}
+
+	/**
 	 * 修改单个角色权限信息
 	 * 
 	 * @param rolePermission

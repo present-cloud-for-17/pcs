@@ -16,7 +16,9 @@ import com.pcs.pojo.UserVerification;
 import com.pcs.service.IPersonService;
 import com.pcs.service.IUserService;
 import com.pcs.service.IUserVerificationService;
+import com.pcs.utils.JWTUtil;
 import com.pcs.utils.MD5Encryption;
+import com.pcs.utils.ResponseData;
 
 @Controller
 @RequestMapping("/user")
@@ -115,6 +117,9 @@ public class UserController {
 			person.setsId(null);
 			person.setuId(user1.getuId());
 			Integer pe_res = this.personService.insertSelective(person);
+			Person person1 = new Person();
+			person1 = this.personService.selectByuId(user1.getuId());
+			user1.setPeId(person1.getPeId());
 
 			// 根据注册用户的账号,手机号和邮箱注册登录表
 			// 1 - 账号登录，2-手机号登录，3-邮箱登录
@@ -129,9 +134,11 @@ public class UserController {
 			int uv3_res = this.userVerificationService.insertSelective(uv3);
 			if (uv1_res == 1 && uv2_res == 1 && uv3_res == 1 && pe_res == 1) {
 				return user1;
+
 			} else {
 				return null;
 			}
+
 		} else {
 			return null;
 		}
@@ -149,9 +156,10 @@ public class UserController {
 	 * 用户注册
 	 */
 	@RequestMapping("/register.do")
-	public @ResponseBody User register(@RequestBody User user) {
+	public @ResponseBody ResponseData register(@RequestBody User user) {
 		// 添加注册用户信息
 		Integer result = this.userService.insertSelective(user);
+		ResponseData responseData = ResponseData.ok();
 		if (result == 1) {
 			// 获取注册的用户
 			User user1 = this.userService.selectByuNumber(user.getuNumber());
@@ -167,6 +175,9 @@ public class UserController {
 			person.setsId(null);
 			person.setuId(user1.getuId());
 			Integer pe_res = this.personService.insertSelective(person);
+			Person person1 = new Person();
+			person1 = this.personService.selectByuId(user1.getuId());
+			user1.setPeId(person1.getPeId());
 
 			// 根据注册用户的账号,手机号和邮箱注册登录表
 			// 1 - 账号登录，2-手机号登录，3-邮箱登录
@@ -180,12 +191,23 @@ public class UserController {
 			int uv2_res = this.userVerificationService.insertSelective(uv2);
 			int uv3_res = this.userVerificationService.insertSelective(uv3);
 			if (uv1_res == 1 && uv2_res == 1 && uv3_res == 1 && pe_res == 1) {
-				return user1;
+				// 生成token
+				String token = JWTUtil.generToken("1", "Jersey-Security-Basic", uv1.getLoginToken());
+				// 向浏览器返回token，客户端受到此token后存入cookie中，或者h5的本地存储中
+				responseData.putDataValue("token", token);
+
+				// 用户信息
+				responseData.putDataValue("user", user1);
+
 			} else {
-				return null;
+				// 用户或者密码错误
+				responseData = ResponseData.customerError();
 			}
+			return responseData;
+
 		} else {
-			return null;
+			responseData = ResponseData.customerError();
+			return responseData;
 		}
 	}
 

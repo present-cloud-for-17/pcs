@@ -10,7 +10,10 @@
 		<result column="last_modifier" jdbcType="INTEGER" property="lastModifier" />
 		<result column="last_modify_date" jdbcType="TIMESTAMP"
 			property="lastModifyDate" />
+		<result column="p_id" jdbcType="INTEGER" property="pId" />
 		<result column="p_name" jdbcType="VARCHAR" property="pName" />
+		<result column="status" jdbcType="INTEGER" property="status" />
+
 	</resultMap>
 	<sql id="Base_Column_List">
 		r_id, r_name, description, creator, create_time,
@@ -136,13 +139,15 @@
 
 	<select id="selectRolePermission" resultType="com.pcs.pojo.Role">
 		SELECT
-		r.r_id,r_name,p_name,r.description
+		r.r_id,r_name,r.description,p.p_id,p_name,rp.status
 		FROM
 		role_permission rp left
 		outer
 		join role r on rp.r_id = r.r_id left
-		outer join permission p on
+		outer
+		join permission p on
 		rp.p_id
-		= p.p_id order by r_name
+		= p.p_id order by r_name DESC,rp.status
+		DESC
 	</select>
 </mapper>

@@ -23,7 +23,11 @@ public class Role implements Serializable {
 
 	private Date lastModifyDate;
 
+	private Integer pId;
+
 	private String pName;
+
+	private Integer status;
 
 	public Role() {
 		super();
@@ -98,12 +102,28 @@ public class Role implements Serializable {
 		this.lastModifyDate = lastModifyDate;
 	}
 
+	public Integer getpId() {
+		return pId;
+	}
+
+	public void setpId(Integer pId) {
+		this.pId = pId;
+	}
+
 	public String getpName() {
 		return pName;
 	}
 
 	public void setpName(String pName) {
 		this.pName = pName;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 }

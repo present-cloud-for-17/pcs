@@ -16,7 +16,9 @@ public interface IRolePermissionService {
 	int updateByPrimaryKeySelective(RolePermission record);
 
 	int updateByPrimaryKey(RolePermission record);
-	
-    List<RolePermission> findAll();
+
+	List<RolePermission> findAll();
+
+	Integer updateByrIdAndpId(RolePermission rolePermission);
 
 }

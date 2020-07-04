@@ -62,4 +62,10 @@ public class RolePermissionServiceImpl implements IRolePermissionService {
 		return this.rolePermissionDao.findAll();
 	}
 
+	@Override
+	public Integer updateByrIdAndpId(RolePermission rolePermission) {
+		// TODO Auto-generated method stub
+		return this.rolePermissionDao.updateByrIdAndpId(rolePermission);
+	}
+
 }
